@@ -1,4 +1,4 @@
-update=Sat 16 Oct 2021 06:54:39 AM PDT
+update=Tue 02 Nov 2021 03:25:47 PM PDT
 version=1
 last_client=kicad
 [general]
@@ -32,19 +32,19 @@ AllowMicroVias=0
 AllowBlindVias=0
 RequireCourtyardDefinitions=0
 ProhibitOverlappingCourtyards=1
-MinTrackWidth=0.2
-MinViaDiameter=0.4
-MinViaDrill=0.3
-MinMicroViaDiameter=0.2
-MinMicroViaDrill=0.09999999999999999
+MinTrackWidth=0.254
+MinViaDiameter=0.4064
+MinViaDrill=0.4064
+MinMicroViaDiameter=0.4064
+MinMicroViaDrill=0.4064
 MinHoleToHole=0.25
 TrackWidth1=0.254
 TrackWidth2=0.508
 TrackWidth3=1.016
 ViaDiameter1=0.8128
 ViaDrill1=0.4064
-dPairWidth1=0.2
-dPairGap1=0.25
+dPairWidth1=0.254
+dPairGap1=0.254
 dPairViaGap1=0.25
 SilkLineWidth=0.12
 SilkTextSizeV=1
@@ -199,15 +199,15 @@ Name=B.Cu
 Type=0
 Enabled=1
 [pcbnew/Layer.B.Adhes]
-Enabled=1
+Enabled=0
 [pcbnew/Layer.F.Adhes]
 Enabled=1
 [pcbnew/Layer.B.Paste]
-Enabled=1
+Enabled=0
 [pcbnew/Layer.F.Paste]
 Enabled=1
 [pcbnew/Layer.B.SilkS]
-Enabled=1
+Enabled=0
 [pcbnew/Layer.F.SilkS]
 Enabled=1
 [pcbnew/Layer.B.Mask]
@@ -231,7 +231,7 @@ Enabled=1
 [pcbnew/Layer.F.CrtYd]
 Enabled=1
 [pcbnew/Layer.B.Fab]
-Enabled=1
+Enabled=0
 [pcbnew/Layer.F.Fab]
 Enabled=1
 [pcbnew/Layer.Rescue]
@@ -243,8 +243,8 @@ Clearance=0.254
 TrackWidth=0.254
 ViaDiameter=0.8128
 ViaDrill=0.4064
-uViaDiameter=0.3
-uViaDrill=0.1
-dPairWidth=0.2
-dPairGap=0.25
+uViaDiameter=0.8128
+uViaDrill=0.4064
+dPairWidth=0.254
+dPairGap=0.254
 dPairViaGap=0.25

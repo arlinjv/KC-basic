@@ -17517,8 +17517,6 @@ F 3 "" H 6750 2000 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6750 2000 6750 2850
-Wire Wire Line
 	6750 2850 7300 2850
 $Comp
 L SparkFun-PowerSymbols:12V #SUPPLY0102
@@ -17575,11 +17573,6 @@ Wire Wire Line
 	6650 3200 6250 3200
 Connection ~ 6650 2950
 Wire Wire Line
-	6750 2850 6750 3000
-Wire Wire Line
-	6750 3000 6250 3000
-Connection ~ 6750 2850
-Wire Wire Line
 	6850 2750 6850 3100
 Wire Wire Line
 	6850 3100 6250 3100
@@ -17594,49 +17587,21 @@ Connection ~ 6950 2350
 Wire Wire Line
 	6450 2150 6450 2200
 Wire Wire Line
-	6450 2200 6250 2200
-Wire Wire Line
 	6450 2150 7300 2150
 Wire Wire Line
-	6250 2300 6450 2300
-Wire Wire Line
-	6450 2300 6450 2250
-Wire Wire Line
-	6450 2250 7300 2250
-Wire Wire Line
-	6250 2400 6450 2400
-Wire Wire Line
-	6450 2400 6450 2450
-Wire Wire Line
-	6450 2450 7300 2450
-Wire Wire Line
-	6250 2500 6450 2500
-Wire Wire Line
-	6450 2500 6450 2550
+	6350 2450 7300 2450
 Wire Wire Line
 	6450 2550 7300 2550
 Wire Wire Line
-	6250 2600 6450 2600
-Wire Wire Line
-	6450 2600 6450 2650
-Wire Wire Line
 	6450 2650 7300 2650
 Wire Wire Line
-	6450 3050 6450 2700
-Wire Wire Line
-	6450 2700 6250 2700
+	6450 3050 6450 3000
 Wire Wire Line
 	6450 3050 7300 3050
 Wire Wire Line
-	6500 3150 6500 2800
+	6550 3150 7300 3150
 Wire Wire Line
-	6500 2800 6250 2800
-Wire Wire Line
-	6500 3150 7300 3150
-Wire Wire Line
-	6400 3250 6400 2900
-Wire Wire Line
-	6400 2900 6250 2900
+	6400 3250 6400 2300
 Wire Wire Line
 	6400 3250 7300 3250
 Connection ~ 7800 800 
@@ -17700,4 +17665,41 @@ F 3 "" H 4900 1700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4900 1500 4900 1700
+Wire Wire Line
+	6450 3000 6250 3000
+Wire Wire Line
+	6450 2900 6250 2900
+Wire Wire Line
+	6450 2900 6450 2650
+Wire Wire Line
+	6350 2800 6350 2450
+Wire Wire Line
+	6350 2800 6250 2800
+Wire Wire Line
+	6250 2700 6500 2700
+Wire Wire Line
+	6500 2700 6500 2250
+Wire Wire Line
+	6500 2250 7300 2250
+Wire Wire Line
+	6750 2000 6750 2600
+Wire Wire Line
+	6250 2600 6750 2600
+Connection ~ 6750 2600
+Wire Wire Line
+	6750 2600 6750 2850
+Wire Wire Line
+	6250 2300 6400 2300
+Wire Wire Line
+	6250 2200 6450 2200
+Text Notes 6100 4400 0    50   ~ 0
+J2 connections:\n1: +48V\n2: +12V\n3: Foot_SW\n4: Brake (12V)\n5: REV\n6: FWD\n7: 5V\n8: Throttle\n9: Brake_AN\n10: Meter\n11: PWR\n12: GND
+Wire Wire Line
+	6550 2400 6550 3150
+Wire Wire Line
+	6450 2500 6450 2550
+Wire Wire Line
+	6250 2500 6450 2500
+Wire Wire Line
+	6250 2400 6550 2400
 $EndSCHEMATC
