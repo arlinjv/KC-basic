@@ -14453,7 +14453,7 @@ U 1 1 619908D5
 P 750 2700
 F 0 "H1" H 850 2746 50  0000 L CNN
 F 1 "MountingHole" H 850 2655 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_ISO14580" H 750 2700 50  0001 C CNN
+F 2 "myfootprints:MountingHole_3.2mm_M3_through_hole" H 750 2700 50  0001 C CNN
 F 3 "~" H 750 2700 50  0001 C CNN
 	1    750  2700
 	1    0    0    -1  
@@ -14464,7 +14464,7 @@ U 1 1 61990E98
 P 750 3050
 F 0 "H2" H 850 3096 50  0000 L CNN
 F 1 "MountingHole" H 850 3005 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_ISO14580" H 750 3050 50  0001 C CNN
+F 2 "myfootprints:MountingHole_3.2mm_M3_through_hole" H 750 3050 50  0001 C CNN
 F 3 "~" H 750 3050 50  0001 C CNN
 	1    750  3050
 	1    0    0    -1  
@@ -14475,7 +14475,7 @@ U 1 1 619919A3
 P 750 3400
 F 0 "H3" H 850 3446 50  0000 L CNN
 F 1 "MountingHole" H 850 3355 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_ISO14580" H 750 3400 50  0001 C CNN
+F 2 "myfootprints:MountingHole_3.2mm_M3_through_hole" H 750 3400 50  0001 C CNN
 F 3 "~" H 750 3400 50  0001 C CNN
 	1    750  3400
 	1    0    0    -1  
@@ -14486,7 +14486,7 @@ U 1 1 61991E9B
 P 750 3750
 F 0 "H4" H 850 3796 50  0000 L CNN
 F 1 "MountingHole" H 850 3705 50  0000 L CNN
-F 2 "MountingHole:MountingHole_3.2mm_M3_ISO14580" H 750 3750 50  0001 C CNN
+F 2 "myfootprints:MountingHole_3.2mm_M3_through_hole" H 750 3750 50  0001 C CNN
 F 3 "~" H 750 3750 50  0001 C CNN
 	1    750  3750
 	1    0    0    -1  
@@ -14494,7 +14494,7 @@ $EndComp
 Text Notes 4600 4100 0    50   ~ 0
 make sure boost is not\nenabled in app
 Text Notes 650  7750 0    100  ~ 0
-Rev 2: \nTo be used with Kelly assemblies on first prototype vehicle for basic manual control. \nFuture versions will use mcu\n\nChanges:\n- Dropping display output \n- Matching wiring needs of assemblies (flat connector used by assembly)\nTo do:\n- Make consistent with assembly configuration\n- -  Incorporate 2A fuse between switch and 48V (PWR)?\n- - Put fuses, contactor, ext. switch on schematic\n- - - Use number sign in front of reference so they don't show up on PCB\n- Use bigger board connector for switch\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
+Rev 2: \nTo be used with Kelly assemblies on first prototype vehicle for basic manual control. \nFuture versions will use mcu\n\nChanges:\n- Dropping display output \n- Matching wiring needs of assemblies (flat connector used by assembly)\nTo do:\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
 Text Notes 7000 1750 0    50   ~ 0
 From: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf
 Text Label 7150 2150 0    50   ~ 0
@@ -17551,59 +17551,11 @@ F 3 "" H 6950 3400 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6950 3400 6950 2350
-Wire Wire Line
 	6950 2350 7300 2350
 Text Label 7150 2250 0    50   ~ 0
 FWD
-$Comp
-L Connector:Conn_01x12_Female J2
-U 1 1 6196588F
-P 6050 2700
-F 0 "J2" H 5942 1875 50  0000 C CNN
-F 1 "Conn_01x12_Female" H 5942 1966 50  0000 C CNN
-F 2 "Connector_Molex:Molex_SL_171971-0012_1x12_P2.54mm_Vertical" H 6050 2700 50  0001 C CNN
-F 3 "~" H 6050 2700 50  0001 C CNN
-	1    6050 2700
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	6650 2950 6650 3200
-Wire Wire Line
-	6650 3200 6250 3200
 Connection ~ 6650 2950
-Wire Wire Line
-	6850 2750 6850 3100
-Wire Wire Line
-	6850 3100 6250 3100
 Connection ~ 6850 2750
-Wire Wire Line
-	6950 2350 6550 2350
-Wire Wire Line
-	6550 2350 6550 2100
-Wire Wire Line
-	6550 2100 6250 2100
-Connection ~ 6950 2350
-Wire Wire Line
-	6450 2150 6450 2200
-Wire Wire Line
-	6450 2150 7300 2150
-Wire Wire Line
-	6350 2450 7300 2450
-Wire Wire Line
-	6450 2550 7300 2550
-Wire Wire Line
-	6450 2650 7300 2650
-Wire Wire Line
-	6450 3050 6450 3000
-Wire Wire Line
-	6450 3050 7300 3050
-Wire Wire Line
-	6550 3150 7300 3150
-Wire Wire Line
-	6400 3250 6400 2300
-Wire Wire Line
-	6400 3250 7300 3250
 Connection ~ 7800 800 
 Wire Wire Line
 	7800 800  7700 800 
@@ -17665,41 +17617,102 @@ F 3 "" H 4900 1700 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4900 1500 4900 1700
+Text Notes 6050 4800 0    50   ~ 0
+KC connections:\nJ1:\n 1: Foot_SW\n 2: Brake (12V)\n 3: REV\n 4: FWD\n 5: Brake_AN\n 6: Throttle\nJ2:\n 1: PWR\n 2: +48V\n 3: +12V\n 4: + 5V\n 5: GND\n 6: Meter
 Wire Wire Line
-	6450 3000 6250 3000
+	6750 2000 6750 2850
+$Comp
+L Connector:Conn_01x06_Female J1
+U 1 1 61A47E49
+P 6000 2300
+F 0 "J1" H 5892 1775 50  0000 C CNN
+F 1 "Conn_01x06_Female" H 5892 1866 50  0000 C CNN
+F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 6000 2300 50  0001 C CNN
+F 3 "~" H 6000 2300 50  0001 C CNN
+	1    6000 2300
+	-1   0    0    1   
+$EndComp
 Wire Wire Line
-	6450 2900 6250 2900
+	6650 2950 6650 3300
 Wire Wire Line
-	6450 2900 6450 2650
+	6550 3150 7300 3150
 Wire Wire Line
-	6350 2800 6350 2450
+	6750 3100 6750 2850
+Connection ~ 6750 2850
 Wire Wire Line
-	6350 2800 6250 2800
+	7100 2150 7300 2150
 Wire Wire Line
-	6250 2700 6500 2700
+	6200 2500 6450 2500
 Wire Wire Line
-	6500 2700 6500 2250
+	6450 2500 6450 3050
 Wire Wire Line
-	6500 2250 7300 2250
+	6450 3050 7150 3050
 Wire Wire Line
-	6750 2000 6750 2600
+	7000 2400 7000 2650
 Wire Wire Line
-	6250 2600 6750 2600
-Connection ~ 6750 2600
+	7000 2650 7300 2650
 Wire Wire Line
-	6750 2600 6750 2850
+	6200 2300 6800 2300
 Wire Wire Line
-	6250 2300 6400 2300
+	6800 2300 6800 2450
 Wire Wire Line
-	6250 2200 6450 2200
-Text Notes 6100 4400 0    50   ~ 0
-J2 connections:\n1: +48V\n2: +12V\n3: Foot_SW\n4: Brake (12V)\n5: REV\n6: FWD\n7: 5V\n8: Throttle\n9: Brake_AN\n10: Meter\n11: PWR\n12: GND
+	6800 2450 7300 2450
 Wire Wire Line
-	6550 2400 6550 3150
+	6200 2200 7000 2200
 Wire Wire Line
-	6450 2500 6450 2550
+	7000 2200 7000 2250
 Wire Wire Line
-	6250 2500 6450 2500
+	7000 2250 7300 2250
 Wire Wire Line
-	6250 2400 6550 2400
+	6700 2550 7300 2550
+Wire Wire Line
+	6200 2400 7000 2400
+Wire Wire Line
+	6550 2100 6550 3150
+$Comp
+L Connector:Conn_01x06_Female J2
+U 1 1 61A8ECFC
+P 6000 3200
+F 0 "J2" H 5892 2675 50  0000 C CNN
+F 1 "Conn_01x06_Female" H 5892 2766 50  0000 C CNN
+F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 6000 3200 50  0001 C CNN
+F 3 "~" H 6000 3200 50  0001 C CNN
+	1    6000 3200
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	7050 3250 7400 3250
+Wire Wire Line
+	7100 2150 7100 3350
+Wire Wire Line
+	6850 2750 6850 3200
+Wire Wire Line
+	6200 3200 6850 3200
+Wire Wire Line
+	6200 3100 6750 3100
+Wire Wire Line
+	6200 3300 6650 3300
+Wire Wire Line
+	6200 3400 6750 3400
+Wire Wire Line
+	6750 3400 6750 3350
+Wire Wire Line
+	6750 3350 7100 3350
+Wire Wire Line
+	6950 2350 6950 3000
+Wire Wire Line
+	6200 2900 7050 2900
+Wire Wire Line
+	7050 2900 7050 3250
+Wire Wire Line
+	6200 3000 6950 3000
+Connection ~ 6950 3000
+Wire Wire Line
+	6950 3000 6950 3400
+Wire Wire Line
+	6200 2100 6550 2100
+Wire Wire Line
+	6200 2000 6700 2000
+Wire Wire Line
+	6700 2000 6700 2550
 $EndSCHEMATC
