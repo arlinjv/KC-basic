@@ -1,4 +1,4 @@
-update=Thu 04 Nov 2021 06:51:20 PM PDT
+update=Thu 04 Nov 2021 07:18:38 PM PDT
 version=1
 last_client=kicad
 [general]
@@ -41,8 +41,8 @@ MinHoleToHole=0.25
 TrackWidth1=0.254
 TrackWidth2=0.508
 TrackWidth3=1.016
-ViaDiameter1=0.8128
-ViaDrill1=0.4064
+ViaDiameter1=0.8382
+ViaDrill1=0.8128
 ViaDiameter2=0.8382
 ViaDrill2=0.8128
 ViaDiameter3=0.889
@@ -245,8 +245,8 @@ Enabled=0
 Name=Default
 Clearance=0.254
 TrackWidth=0.254
-ViaDiameter=0.8128
-ViaDrill=0.4064
+ViaDiameter=0.8382
+ViaDrill=0.8128
 uViaDiameter=0.8128
 uViaDrill=0.4064
 dPairWidth=0.254
