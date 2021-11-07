@@ -6018,75 +6018,64 @@ $EndBitmap
 $Comp
 L Switch:SW_SPST SW4
 U 1 1 616D14C8
-P 8300 800
-F 0 "SW4" H 8400 700 50  0000 L CNN
-F 1 "Power Switch" H 8200 900 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8300 800 50  0001 C CNN
-F 3 "~" H 8300 800 50  0001 C CNN
-	1    8300 800 
+P 6900 1500
+F 0 "SW4" H 7000 1400 50  0000 L CNN
+F 1 "Power Switch" H 6800 1600 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 6900 1500 50  0001 C CNN
+F 3 "~" H 6900 1500 50  0001 C CNN
+	1    6900 1500
 	-1   0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR07
-U 1 1 616D2DBF
-P 8800 1100
-F 0 "#PWR07" H 8800 850 50  0001 C CNN
-F 1 "GND" H 8805 927 50  0000 C CNN
-F 2 "" H 8800 1100 50  0001 C CNN
-F 3 "" H 8800 1100 50  0001 C CNN
-	1    8800 1100
-	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x02_Female J6
 U 1 1 61703BD3
-P 5450 700
-F 0 "J6" H 5478 676 50  0000 L CNN
-F 1 "12V" H 5250 850 50  0000 L CNN
-F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 5450 700 50  0001 C CNN
-F 3 "~" H 5450 700 50  0001 C CNN
-	1    5450 700 
+P 4850 700
+F 0 "J6" H 4878 676 50  0000 L CNN
+F 1 "12V" H 4650 850 50  0000 L CNN
+F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 4850 700 50  0001 C CNN
+F 3 "~" H 4850 700 50  0001 C CNN
+	1    4850 700 
 	1    0    0    -1  
 $EndComp
 $Comp
 L Connector:Conn_01x02_Female J5
 U 1 1 6170433B
-P 6550 700
-F 0 "J5" H 6578 676 50  0000 L CNN
-F 1 "48V" H 6350 850 50  0000 L CNN
-F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 6550 700 50  0001 C CNN
-F 3 "~" H 6550 700 50  0001 C CNN
-	1    6550 700 
+P 5950 700
+F 0 "J5" H 5978 676 50  0000 L CNN
+F 1 "48V" H 5750 850 50  0000 L CNN
+F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 5950 700 50  0001 C CNN
+F 3 "~" H 5950 700 50  0001 C CNN
+	1    5950 700 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5250 700  4900 700 
+	4650 700  4300 700 
 Wire Wire Line
-	5250 800  4900 800 
+	4650 800  4300 800 
 Wire Wire Line
-	6350 800  6000 800 
+	5750 800  5400 800 
 Wire Wire Line
-	6350 700  6000 700 
+	5750 700  5400 700 
 $Comp
 L power:+48V #PWR04
 U 1 1 6171115B
-P 6000 700
-F 0 "#PWR04" H 6000 550 50  0001 C CNN
-F 1 "+48V" H 6015 873 50  0000 C CNN
-F 2 "" H 6000 700 50  0001 C CNN
-F 3 "" H 6000 700 50  0001 C CNN
-	1    6000 700 
+P 5400 700
+F 0 "#PWR04" H 5400 550 50  0001 C CNN
+F 1 "+48V" H 5415 873 50  0000 C CNN
+F 2 "" H 5400 700 50  0001 C CNN
+F 3 "" H 5400 700 50  0001 C CNN
+	1    5400 700 
 	1    0    0    -1  
 $EndComp
 $Comp
 L SparkFun-PowerSymbols:12V #SUPPLY03
 U 1 1 6171EC3E
-P 4900 700
-F 0 "#SUPPLY03" H 4950 700 45  0001 L BNN
-F 1 "12V" H 4900 870 45  0000 C CNN
-F 2 "XXX-00000" H 4900 881 60  0001 C CNN
-F 3 "" H 4900 700 60  0001 C CNN
-	1    4900 700 
+P 4300 700
+F 0 "#SUPPLY03" H 4350 700 45  0001 L BNN
+F 1 "12V" H 4300 870 45  0000 C CNN
+F 2 "XXX-00000" H 4300 881 60  0001 C CNN
+F 3 "" H 4300 700 60  0001 C CNN
+	1    4300 700 
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -6137,53 +6126,53 @@ $EndComp
 $Comp
 L Connector:Conn_01x02_Female J7
 U 1 1 61737F58
-P 5450 1400
-F 0 "J7" H 5478 1376 50  0000 L CNN
-F 1 "5V" H 5250 1550 50  0000 L CNN
-F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 5450 1400 50  0001 C CNN
-F 3 "~" H 5450 1400 50  0001 C CNN
-	1    5450 1400
+P 4850 1350
+F 0 "J7" H 4878 1326 50  0000 L CNN
+F 1 "5V" H 4650 1500 50  0000 L CNN
+F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 4850 1350 50  0001 C CNN
+F 3 "~" H 4850 1350 50  0001 C CNN
+	1    4850 1350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5250 1500 4900 1500
+	4650 1450 4300 1450
 Wire Wire Line
-	5250 1400 4900 1400
+	4650 1350 4300 1350
 $Comp
 L SparkFun-PowerSymbols:5V #SUPPLY04
 U 1 1 6173C86C
-P 4900 1400
-F 0 "#SUPPLY04" H 4950 1400 45  0001 L BNN
-F 1 "5V" H 4900 1570 45  0000 C CNN
-F 2 "XXX-00000" H 4900 1581 60  0001 C CNN
-F 3 "" H 4900 1400 60  0001 C CNN
-	1    4900 1400
+P 4300 1350
+F 0 "#SUPPLY04" H 4350 1350 45  0001 L BNN
+F 1 "5V" H 4300 1520 45  0000 C CNN
+F 2 "XXX-00000" H 4300 1531 60  0001 C CNN
+F 3 "" H 4300 1350 60  0001 C CNN
+	1    4300 1350
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:GND #PWR05
 U 1 1 617451C4
-P 4900 800
-F 0 "#PWR05" H 4900 550 50  0001 C CNN
-F 1 "GND" H 4905 627 50  0000 C CNN
-F 2 "" H 4900 800 50  0001 C CNN
-F 3 "" H 4900 800 50  0001 C CNN
-	1    4900 800 
+P 4300 800
+F 0 "#PWR05" H 4300 550 50  0001 C CNN
+F 1 "GND" H 4305 627 50  0000 C CNN
+F 2 "" H 4300 800 50  0001 C CNN
+F 3 "" H 4300 800 50  0001 C CNN
+	1    4300 800 
 	1    0    0    -1  
 $EndComp
-Text Label 5000 1400 0    50   ~ 0
+Text Label 4400 1350 0    50   ~ 0
 5V
-Text Label 5050 700  0    50   ~ 0
+Text Label 4450 700  0    50   ~ 0
 12V
 Wire Wire Line
 	4650 3450 5100 3450
 Text Label 4800 3450 0    50   ~ 0
 Foot_SW
-Text Notes 5000 1600 0    50   ~ 0
+Text Notes 4400 1550 0    50   ~ 0
 5V powers pots
-Text Notes 5050 900  0    50   ~ 0
+Text Notes 4450 900  0    50   ~ 0
 12V powers switches
-Text Notes 6400 1000 0    50   ~ 0
+Text Notes 5800 1000 0    50   ~ 0
 48V powers controller\n(pin 7 / pink)
 Wire Wire Line
 	4000 2900 4000 3450
@@ -6210,7 +6199,7 @@ Wire Wire Line
 	4650 3900 5100 3900
 Text Label 4900 3900 0    50   ~ 0
 Brake
-Text Notes 7600 4550 0    50   ~ 0
+Text Notes 6950 1250 0    50   ~ 0
 Contactor is energizd along with \nKelly controller when power\nswitch is engaged
 $Comp
 L Device:R_POT RV2
@@ -14404,49 +14393,49 @@ $EndBitmap
 $Comp
 L power:PWR_FLAG #FLG0101
 U 1 1 6183F14E
-P 7800 800
-F 0 "#FLG0101" H 7800 875 50  0001 C CNN
-F 1 "PWR_FLAG" H 7500 950 50  0000 L CNN
-F 2 "" H 7800 800 50  0001 C CNN
-F 3 "~" H 7800 800 50  0001 C CNN
-	1    7800 800 
-	1    0    0    -1  
+P 6650 1500
+F 0 "#FLG0101" H 6650 1575 50  0001 C CNN
+F 1 "PWR_FLAG" V 6650 1650 50  0000 L CNN
+F 2 "" H 6650 1500 50  0001 C CNN
+F 3 "~" H 6650 1500 50  0001 C CNN
+	1    6650 1500
+	0    -1   -1   0   
 $EndComp
 $Comp
 L power:PWR_FLAG #FLG0102
 U 1 1 61843B71
-P 8800 900
-F 0 "#FLG0102" H 8800 975 50  0001 C CNN
-F 1 "PWR_FLAG" V 8750 1000 50  0000 L CNN
-F 2 "" H 8800 900 50  0001 C CNN
-F 3 "~" H 8800 900 50  0001 C CNN
-	1    8800 900 
-	0    -1   -1   0   
+P 6950 3550
+F 0 "#FLG0102" H 6950 3625 50  0001 C CNN
+F 1 "PWR_FLAG" V 6900 3650 50  0000 L CNN
+F 2 "" H 6950 3550 50  0001 C CNN
+F 3 "~" H 6950 3550 50  0001 C CNN
+	1    6950 3550
+	0    1    1    0   
 $EndComp
 $Comp
 L power:PWR_FLAG #FLG0103
 U 1 1 618451B3
-P 4900 1400
-F 0 "#FLG0103" H 4900 1475 50  0001 C CNN
-F 1 "PWR_FLAG" V 4900 1527 50  0000 L CNN
-F 2 "" H 4900 1400 50  0001 C CNN
-F 3 "~" H 4900 1400 50  0001 C CNN
-	1    4900 1400
+P 4300 1350
+F 0 "#FLG0103" H 4300 1425 50  0001 C CNN
+F 1 "PWR_FLAG" V 4300 1477 50  0000 L CNN
+F 2 "" H 4300 1350 50  0001 C CNN
+F 3 "~" H 4300 1350 50  0001 C CNN
+	1    4300 1350
 	0    -1   -1   0   
 $EndComp
-Connection ~ 4900 1400
+Connection ~ 4300 1350
 $Comp
 L power:PWR_FLAG #FLG0104
 U 1 1 618456AB
-P 4900 700
-F 0 "#FLG0104" H 4900 775 50  0001 C CNN
-F 1 "PWR_FLAG" V 4900 827 50  0000 L CNN
-F 2 "" H 4900 700 50  0001 C CNN
-F 3 "~" H 4900 700 50  0001 C CNN
-	1    4900 700 
+P 4300 700
+F 0 "#FLG0104" H 4300 775 50  0001 C CNN
+F 1 "PWR_FLAG" V 4300 827 50  0000 L CNN
+F 2 "" H 4300 700 50  0001 C CNN
+F 3 "~" H 4300 700 50  0001 C CNN
+	1    4300 700 
 	0    -1   -1   0   
 $EndComp
-Connection ~ 4900 700 
+Connection ~ 4300 700 
 $Comp
 L Mechanical:MountingHole H1
 U 1 1 619908D5
@@ -14494,8 +14483,8 @@ $EndComp
 Text Notes 4600 4100 0    50   ~ 0
 make sure boost is not\nenabled in app
 Text Notes 650  7750 0    100  ~ 0
-Rev 2: \nTo be used with Kelly assemblies on first prototype vehicle for basic manual control. \nFuture versions will use mcu\n\nChanges:\n- Dropped display output \n- Adapted wiring to flat 14 pin connector from assembly\nTo do:\n- Remove Batt connector (superfluous - power comes in on brown line and goes back to \n  controller on pink line via power switch)\n- Flip control connectors to face same direction?\n- Use 40 mil traces for 12v (considering that's the largest wire coming in)\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
-Text Notes 7000 1750 0    50   ~ 0
+Rev 2: \nTo be used with Kelly assemblies on first prototype vehicle for basic manual control. \nFuture versions will use mcu\n\nChanges:\n- Dropped display output \n- Adapted wiring to flat 14 pin connector from assembly\n- Dropped battery connector (superfluous - power comes in on brown line and goes back to \n  controller on pink line via power switch)\n- Made 12V line thicker (consistent with thicker wire coming from connector)\n\nTo do:\n- Flip control connectors to face same direction?\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
+Text Notes 7750 1750 0    50   ~ 0
 From: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf
 Text Label 7150 2150 0    50   ~ 0
 PWR
@@ -14506,49 +14495,16 @@ Wire Wire Line
 $Comp
 L power:+48V #PWR0101
 U 1 1 618DE811
-P 6650 1900
-F 0 "#PWR0101" H 6650 1750 50  0001 C CNN
-F 1 "+48V" H 6665 2073 50  0000 C CNN
-F 2 "" H 6650 1900 50  0001 C CNN
-F 3 "" H 6650 1900 50  0001 C CNN
-	1    6650 1900
+P 6650 1300
+F 0 "#PWR0101" H 6650 1150 50  0001 C CNN
+F 1 "+48V" H 6665 1473 50  0000 C CNN
+F 2 "" H 6650 1300 50  0001 C CNN
+F 3 "" H 6650 1300 50  0001 C CNN
+	1    6650 1300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6650 2950 6650 1900
-$Comp
-L Connector:Conn_01x02_Female J3
-U 1 1 618EFD6A
-P 9200 800
-F 0 "J3" H 9228 776 50  0000 L CNN
-F 1 "Batt" H 9000 950 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 9200 800 50  0001 C CNN
-F 3 "~" H 9200 800 50  0001 C CNN
-	1    9200 800 
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9000 900  8800 900 
-Connection ~ 8800 900 
-Wire Wire Line
-	8800 900  8800 1100
-Wire Wire Line
-	8100 800  7800 800 
-Wire Wire Line
-	7700 800  7700 700 
-$Comp
-L power:+48V #PWR0102
-U 1 1 6190E291
-P 7700 700
-F 0 "#PWR0102" H 7700 550 50  0001 C CNN
-F 1 "+48V" H 7715 873 50  0000 C CNN
-F 2 "" H 7700 700 50  0001 C CNN
-F 3 "" H 7700 700 50  0001 C CNN
-	1    7700 700 
-	1    0    0    -1  
-$EndComp
-Text Label 8550 800  0    50   ~ 0
-PWR
+	6650 2950 6650 1500
 $Bitmap
 Pos 9132 2966
 Scale 1.430000
@@ -17503,8 +17459,6 @@ Text Label 7150 3150 0    50   ~ 0
 Brake_AN
 Text Label 7150 3050 0    50   ~ 0
 Foot_SW
-Text Notes 7600 4250 0    50   ~ 0
-Power to conactor coil
 $Comp
 L SparkFun-PowerSymbols:5V #SUPPLY0101
 U 1 1 6194DB5C
@@ -17542,12 +17496,12 @@ REV
 $Comp
 L power:GND #PWR0103
 U 1 1 61962056
-P 6950 3400
-F 0 "#PWR0103" H 6950 3150 50  0001 C CNN
-F 1 "GND" H 6955 3227 50  0000 C CNN
-F 2 "" H 6950 3400 50  0001 C CNN
-F 3 "" H 6950 3400 50  0001 C CNN
-	1    6950 3400
+P 6950 3650
+F 0 "#PWR0103" H 6950 3400 50  0001 C CNN
+F 1 "GND" H 6955 3477 50  0000 C CNN
+F 2 "" H 6950 3650 50  0001 C CNN
+F 3 "" H 6950 3650 50  0001 C CNN
+	1    6950 3650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -17556,67 +17510,62 @@ Text Label 7150 2250 0    50   ~ 0
 FWD
 Connection ~ 6650 2950
 Connection ~ 6850 2750
-Connection ~ 7800 800 
-Wire Wire Line
-	7800 800  7700 800 
-Wire Wire Line
-	8500 800  9000 800 
 $Comp
 L Connector:Conn_01x02_Female J4
 U 1 1 61992FF4
-P 3650 800
-F 0 "J4" H 3678 776 50  0000 L CNN
-F 1 "Meter" H 3450 550 50  0000 L CNN
-F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 3650 800 50  0001 C CNN
-F 3 "~" H 3650 800 50  0001 C CNN
-	1    3650 800 
+P 3100 800
+F 0 "J4" H 3128 776 50  0000 L CNN
+F 1 "Meter" H 2900 550 50  0000 L CNN
+F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 3100 800 50  0001 C CNN
+F 3 "~" H 3100 800 50  0001 C CNN
+	1    3100 800 
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	3450 800  3200 800 
+	2900 800  2650 800 
 Wire Wire Line
-	3200 800  3200 950 
+	2650 800  2650 950 
 $Comp
 L power:GND #PWR0104
 U 1 1 619958E3
-P 3200 950
-F 0 "#PWR0104" H 3200 700 50  0001 C CNN
-F 1 "GND" H 3205 777 50  0000 C CNN
-F 2 "" H 3200 950 50  0001 C CNN
-F 3 "" H 3200 950 50  0001 C CNN
-	1    3200 950 
+P 2650 950
+F 0 "#PWR0104" H 2650 700 50  0001 C CNN
+F 1 "GND" H 2655 777 50  0000 C CNN
+F 2 "" H 2650 950 50  0001 C CNN
+F 3 "" H 2650 950 50  0001 C CNN
+	1    2650 950 
 	1    0    0    -1  
 $EndComp
-Text Label 3200 700  0    50   ~ 0
+Text Label 2650 700  0    50   ~ 0
 Meter
 Wire Wire Line
-	3450 700  3200 700 
+	2900 700  2650 700 
 $Comp
 L power:GND #PWR0105
 U 1 1 619BDB8D
-P 6000 900
-F 0 "#PWR0105" H 6000 650 50  0001 C CNN
-F 1 "GND" H 6005 727 50  0000 C CNN
-F 2 "" H 6000 900 50  0001 C CNN
-F 3 "" H 6000 900 50  0001 C CNN
-	1    6000 900 
+P 5400 900
+F 0 "#PWR0105" H 5400 650 50  0001 C CNN
+F 1 "GND" H 5405 727 50  0000 C CNN
+F 2 "" H 5400 900 50  0001 C CNN
+F 3 "" H 5400 900 50  0001 C CNN
+	1    5400 900 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6000 800  6000 900 
+	5400 800  5400 900 
 $Comp
 L power:GND #PWR0106
 U 1 1 619C02E6
-P 4900 1700
-F 0 "#PWR0106" H 4900 1450 50  0001 C CNN
-F 1 "GND" H 4905 1527 50  0000 C CNN
-F 2 "" H 4900 1700 50  0001 C CNN
-F 3 "" H 4900 1700 50  0001 C CNN
-	1    4900 1700
+P 4300 1650
+F 0 "#PWR0106" H 4300 1400 50  0001 C CNN
+F 1 "GND" H 4305 1477 50  0000 C CNN
+F 2 "" H 4300 1650 50  0001 C CNN
+F 3 "" H 4300 1650 50  0001 C CNN
+	1    4300 1650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4900 1500 4900 1700
+	4300 1450 4300 1650
 Text Notes 6050 4800 0    50   ~ 0
 KC connections:\nJ1:\n 1: Foot_SW (blue)\n 2: Brake (12v / gray)\n 3: REV (purple)\n 4: FWD (yellow)\n 5: Brake_AN (green)\n 6: Throttle (white)\nJ2:\n 1: PWR (brown)\n 2: +48V (orange)\n 3: +12V (thick red)\n 4: + 5V (red)\n 5: GND (black)\n 6: Meter (dark gray)\n
 Wire Wire Line
@@ -17708,7 +17657,7 @@ Wire Wire Line
 	6200 3000 6950 3000
 Connection ~ 6950 3000
 Wire Wire Line
-	6950 3000 6950 3400
+	6950 3000 6950 3550
 Wire Wire Line
 	6200 2100 6550 2100
 Wire Wire Line
@@ -18738,4 +18687,17 @@ B3 50 72 72 32 9B CD E6 72 B9 26 26 26 9F 37 C8 F7 42 2D 22 82 20 08 82 00 80 66
 40 FF 07 EC 05 11 64 A1 9A EA 9E 00 00 00 00 49 45 4E 44 AE 42 60 82 
 EndData
 $EndBitmap
+Wire Wire Line
+	6700 1500 6650 1500
+Connection ~ 6650 1500
+Wire Wire Line
+	6650 1500 6650 1300
+Wire Wire Line
+	7100 1500 7100 2150
+Connection ~ 7100 2150
+Connection ~ 6950 3550
+Wire Wire Line
+	6950 3550 6950 3650
+Text Notes 7900 5450 0    50   ~ 0
+Brn   Yell RED  Whi Grn  Prpl \n\n\n\n\n\n\nOrng Drk Red  Blk  Blu\n     gry
 $EndSCHEMATC
