@@ -1,0 +1,17 @@
+Tutorials:
+- https://www.pcbway.com/blog/PCB_Design_Tutorial/Using_Git_with_KiCad.html
+- https://www.atlassian.com/git/tutorials
+
+How do I want to do versioning for the Kelly controller projects?
+- Adding MCU is major inflection point and will be basis for future versions
+	- btw concept of first MCU board is to have one controller board for two KCs (either one side or traditional two wheel drive)
+- First 'manual' / non-MCU version has lots of super useful screenshots and notes. 
+	- Save this version in another branch as 'base' (?) 
+
+Commands
+- git log 
+	- git log -p to see diffs only. 
+	- type q or z to get out
+	- useful for getting sha when want to checkout previous commit
+
+

@@ -18700,4 +18700,6 @@ Wire Wire Line
 	6950 3550 6950 3650
 Text Notes 7900 5450 0    50   ~ 0
 Brn   Yell RED  Whi Grn  Prpl \n\n\n\n\n\n\nOrng Drk Red  Blk  Blu\n     gry
+Text Notes 200  1150 0    50   ~ 0
+Pins needed for MCU board:\nSPI: 4 (if using quad digital pot. Otherwise more)\nI2C: 2\n(Pot inputs:2 - unless using i2c rotation sensor)\nBrake button inputs: 2\nBrake signal outputs: 2\nMeter input: 1
 $EndSCHEMATC
