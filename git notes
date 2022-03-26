@@ -8,10 +8,16 @@ How do I want to do versioning for the Kelly controller projects?
 - First 'manual' / non-MCU version has lots of super useful screenshots and notes. 
 	- Save this version in another branch as 'base' (?) 
 
+Notes:
+- Project was originally KC-basic. Now https://github.com/arlinjv/KC-interface-board
+
+To do:
+- look into creating submodule for pulling in libraries
+
 Commands
 - git log 
 	- git log -p to see diffs only. 
 	- type q or z to get out
 	- useful for getting sha when want to checkout previous commit
 
-
+git push origin master
