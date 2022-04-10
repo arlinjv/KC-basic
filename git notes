@@ -15,6 +15,11 @@ To do:
 - look into creating submodule for pulling in libraries
 
 Commands
+- basic workflow to commit changes
+	- git status (to see what files have changed or been added)
+	- git add filename
+	- git commit -m "text describing what was done"
+	- git push (send updates to github)
 - git log 
 	- git log -p to see diffs only. 
 	- type q or z to get out
