@@ -10834,7 +10834,7 @@ F 3 "~" H 750 3750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 550  -1350 0    100  ~ 0
-MCU based dual Kelly controller interface board\n- Using Arduino pro micro\n- Concept is to keep Arduino and Kelly controllers electrically isolated\n   except for MCU power\n   - Electrical isolation accomplished by use of digital pot (mcp4251)  for throttle \n     and optocouplers for switches\n\nGeneral Notes:\n- meter signals are 12V\n\nBuild Notes:\n- Using mcp4251 not ltv247 opto as depicted\n- Not implementing analog brake or foot switch\n\nChanges:\n\nTo do:\n- Find appropriate DPST (or DPDT) switch to power contactors\n  - Hard to find cheap 48V DC rated panel mount toggle/rocker switches\n  - Digi-Key Part Number CKN9842-ND will do at $8\n- Flip control connectors to face same direction?\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
+MCU based dual Kelly controller interface board\n- Using Arduino pro micro\n- Concept is to keep Arduino and Kelly controllers electrically isolated\n   except for MCU power\n   - Electrical isolation accomplished by use of digital pot (mcp4251)  for throttle \n     and optocouplers for switches\n\nGeneral Notes:\n- meter signals are 12V so have to be buffered somehow\n\nBuild Notes:\n- Using P52501-4 not ltv247 opto as depicted\n- Not implementing analog brake or foot switch\n\nChanges:\n\nTo do:\n- Fix Vcc on meter lines (currently are abandoned.)\n- Fix brake switches in schematic. Should be 12v on top and Brake on bottom. \n- Consider replacing optos with relays (add power filtering cap to Arduino power system)\n- Consider dropping jst connectors and going with hardwired connections to original automotive connectors.\n- Consider using 12v to provide clean isolated power to Arduino. Vcc should be a clean 5v - power chips with this.\n  This will have advantage of ensuring that chips are not affected by voltage drops on KC 5V outputs.\n- Add option to provide completely seperate power to Arduino. Can always tap into 48V and regulate\n- To avoid confusion, consider changing pinout on cables so they have different pin number\n- Power digital pot from Arduino to facilitate testing/debugging\n- Add test points next to digital pot outputs.\n- For unused lines (foot_sw etc.), pull out single pad connections from headers to facilitate \n    hacking later. (For Arduino can use stacking headers and daughter board.)\n- Add indicator lights. (Power for both sides. Meter lines. Opto lines.  What else?)\n- Make leap to factory board. Think about silk screen markings.\n- Find appropriate DPST (or DPDT) switch to power contactors\n  - Hard to find cheap 48V DC rated panel mount toggle/rocker switches\n  - Digi-Key Part Number CKN9842-ND will do at $8\n- PCB:\n   - For signal lines consider spacing farther apart. (How much cutting time is really saved keeping them close)\n   - Use wider traces and bigger pads wherever possible (too much time spent fixings shorts and lifted pads)\n   - Vias: avoid mid line vias and use 30 mil segments leading to via \n    to make soldering easier. Also make sure vias are outside footprints. \n\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
 Text Notes 15100 1800 0    50   ~ 0
 From: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf
 Text Label 14500 2200 0    50   ~ 0
@@ -13882,17 +13882,6 @@ F 1 "Conn_01x06_Female" H 13242 1916 50  0000 C CNN
 F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 13350 2350 50  0001 C CNN
 F 3 "~" H 13350 2350 50  0001 C CNN
 	1    13350 2350
-	-1   0    0    1   
-$EndComp
-$Comp
-L Connector:Conn_01x06_Female J2
-U 1 1 61A8ECFC
-P 13350 3250
-F 0 "J2" H 13242 2725 50  0000 C CNN
-F 1 "Conn_01x06_Female" H 13242 2816 50  0000 C CNN
-F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 13350 3250 50  0001 C CNN
-F 3 "~" H 13350 3250 50  0001 C CNN
-	1    13350 3250
 	-1   0    0    1   
 $EndComp
 $Bitmap
@@ -18215,7 +18204,7 @@ L Switch:SW_Push SW2
 U 1 1 62455AD0
 P 4350 4450
 F 0 "SW2" V 4304 4598 50  0000 L CNN
-F 1 "SW_Push" V 4395 4598 50  0000 L CNN
+F 1 "Brake_SW" V 4395 4598 50  0000 L CNN
 F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 4350 4650 50  0001 C CNN
 F 3 "~" H 4350 4650 50  0001 C CNN
 	1    4350 4450
@@ -18444,8 +18433,6 @@ Wire Wire Line
 	13550 3150 14100 3150
 Wire Wire Line
 	13550 3350 14000 3350
-Wire Wire Line
-	13550 3450 14100 3450
 Wire Wire Line
 	14100 3450 14100 3400
 Wire Wire Line
@@ -18812,8 +18799,6 @@ F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20
 	3    3300 3100
 	-1   0    0    -1  
 $EndComp
-Text Notes 850  1550 0    50   ~ 0
-To do:\nMock up 12V FR switches on opto
 Wire Wire Line
 	2500 3750 3000 3750
 Wire Wire Line
@@ -22672,7 +22657,7 @@ Text Label 5250 5300 0    50   ~ 0
 9-Meter
 Text Label 5250 5200 0    50   ~ 0
 8-Meter
-Text Label 5250 5100 0    50   ~ 0
+Text Label 7650 5200 0    50   ~ 0
 10-CS
 Text Label 5250 5000 0    50   ~ 0
 6-Reverse
@@ -22692,4 +22677,41 @@ F 3 "" H 8500 4650 60  0001 C CNN
 $EndComp
 Wire Wire Line
 	8500 4650 8500 4900
+Wire Wire Line
+	13550 3450 14100 3450
+$Comp
+L Connector:Conn_01x06_Female J2
+U 1 1 61A8ECFC
+P 13350 3250
+F 0 "J2" H 13242 2725 50  0000 C CNN
+F 1 "Conn_01x06_Female" H 13242 2816 50  0000 C CNN
+F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 13350 3250 50  0001 C CNN
+F 3 "~" H 13350 3250 50  0001 C CNN
+	1    13350 3250
+	-1   0    0    1   
+$EndComp
+Text Label 5250 5100 0    50   ~ 0
+7-Brake
+Text Label 6050 4700 0    50   ~ 0
+SCL
+Text Label 6050 4600 0    50   ~ 0
+SDA
+Text Notes 10150 -4050 0    100  ~ 0
+Troubleshooting notes:\n4/16/22: First single board dual controller prototype\n- Tested with Arduino power side only. After updating pin assignments throttle worked. No response from brake or FNR. Connected both \nmotors. Both systems powered up, but motors didn't run in sync. Found that voltage into digital pot on J1/J2 side was lower than J11/J12 side, resulting in different Vout from digital pots.  Further found that 5V from J2 that provides Vraw to Arduino dropped after a few seconds when\nboth motors connected. MCP digital pot chip gets warm, too. No voltage drop on 5v when only one motor running. Also even on one motor control is very glitchy. \n- Problem: Throttle control not working when both motors are powered.\n  - Why is voltage dropping? It doesn't happen when only one motor. \n  - Why is chip getting hot? Could be because B side pot input is higher than Vcc.\n  - Use 12V line to provide clean isolated 5v to Arduino or powering Arduino completely seperately might help though it won't explain why\n    5V from KC dropped to 4V.\n- Problem: None of the optocoupler controls do anything. \n  - Need to get wires on the outputs to do some testing.  \n- Problem: glitchy throttle.\n  - Output from MCP is all over the place. Solve by cleaning up power supply? (output from pot is steady)\n  - Touching board can trigger problem - bad connection? Might have been pot - got better after swapping out.\n\nPriorities:\n- Sort out optocoupler issues first\n- Address throttle issues on new board which will have isolated or external power.\n\n4/17/22: Cut 5V trace between MCP pins 8 and 12 to enable isolating Arduino and Kelly 5v systems. (Initially cut jumper coming out\nof J2 but then realized that 5v still had to get to the MCP pot pin.) Also found bad solder joint on ground line going to optos.\nOn attaching to system saw that Arduino was getting power even though 5V line was cut and was not plugged in to USB.\nPower issue seems to be due to MCP back powering the Arduino. (This came up during breadboarding. By powering the Arduino\n from one of the Kelly's I thought I had made this issue moot. At one point design had a diode between Arduino Vcc and MCP power pin.) \nWent ahead and powered Arduino by USB. One motor works but two start to spin. Still no progress on brake or FNR despite\n fixing ground line problem.\nProgress\n- Resistance and diode checks on brake outputs were succesful. But found out that they were wired wrong - should be 12V on high side and \n  Brake on low side.\n- Found and fixed bad connections on opto side of R3 (FWD line) and REV side of FNR switch JST connector --> FNR now works.
+Text Notes 1800 5500 0    50   ~ 0
+Fix this after saving in git\n--> should be 12v over Brake
+Text Notes 4400 5900 0    50   ~ 0
+Vcc line got orphaned\n- Need to fix
+Wire Notes Line
+	4450 6300 3900 6300
+Wire Notes Line
+	3900 6800 4450 6800
+Wire Notes Line
+	4450 5950 4450 6800
+Text Notes 7400 4750 0    50   ~ 0
+Need to add Vcc line\nin next version
+Wire Notes Line
+	7250 4500 7550 4500
+Wire Notes Line
+	7550 4500 7550 4600
 $EndSCHEMATC
