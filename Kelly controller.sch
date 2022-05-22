@@ -17960,17 +17960,6 @@ Throttle-B
 Text Label 7600 5450 0    50   ~ 0
 Throttle-A
 $Comp
-L power:+5VA #PWR025
-U 1 1 627F88BE
-P 7550 5300
-F 0 "#PWR025" H 7550 5150 50  0001 C CNN
-F 1 "+5VA" H 7650 5350 50  0000 C CNN
-F 2 "" H 7550 5300 50  0001 C CNN
-F 3 "" H 7550 5300 50  0001 C CNN
-	1    7550 5300
-	1    0    0    -1  
-$EndComp
-$Comp
 L Device:R R1
 U 1 1 624A6209
 P 1350 6300
@@ -22388,17 +22377,6 @@ F 3 "" H 7300 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L my_devices:+5VB #PWR030
-U 1 1 62FE6574
-P 7550 4900
-F 0 "#PWR030" H 7550 4750 50  0001 C CNN
-F 1 "+5VB" H 7650 5000 50  0000 C CNN
-F 2 "" H 7550 4900 50  0001 C CNN
-F 3 "" H 7550 4900 50  0001 C CNN
-	1    7550 4900
-	1    0    0    -1  
-$EndComp
-$Comp
 L my_devices:GNDB #PWR029
 U 1 1 62FE877D
 P 7350 5200
@@ -23038,4 +23016,102 @@ Wire Wire Line
 	3850 4050 3850 4150
 Text Notes 8050 4650 0    50   ~ 0
 Kelly controller connections:\n5VA and 5VB connect - pin 4 (5V)\nGNDA and GNDB connect - pin 6 (GND)\nThrottle lines - pin 3 (Throttle)
+$Comp
+L Device:Jumper JP?
+U 1 1 628C9383
+P 8400 2500
+F 0 "JP?" H 8400 2764 50  0000 C CNN
+F 1 "Jumper" H 8400 2673 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8400 2500 50  0001 C CNN
+F 3 "~" H 8400 2500 50  0001 C CNN
+	1    8400 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Jumper JP?
+U 1 1 628CF9D3
+P 8400 2900
+F 0 "JP?" H 8400 3164 50  0000 C CNN
+F 1 "Jumper" H 8400 3073 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8400 2900 50  0001 C CNN
+F 3 "~" H 8400 2900 50  0001 C CNN
+	1    8400 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 628D0193
+P 7900 3200
+F 0 "#PWR?" H 7900 2950 50  0001 C CNN
+F 1 "GND" H 7905 3027 50  0000 C CNN
+F 2 "" H 7900 3200 50  0001 C CNN
+F 3 "" H 7900 3200 50  0001 C CNN
+	1    7900 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 2500 7900 2500
+Wire Wire Line
+	7900 2500 7900 2900
+Wire Wire Line
+	8100 2900 7900 2900
+Connection ~ 7900 2900
+Wire Wire Line
+	7900 2900 7900 3200
+$Comp
+L power:GNDA #PWR?
+U 1 1 629030A9
+P 9100 2650
+F 0 "#PWR?" H 9100 2400 50  0001 C CNN
+F 1 "GNDA" H 9105 2477 50  0000 C CNN
+F 2 "" H 9100 2650 50  0001 C CNN
+F 3 "" H 9100 2650 50  0001 C CNN
+	1    9100 2650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8700 2500 9100 2500
+Wire Wire Line
+	9100 2500 9100 2650
+$Comp
+L my_devices:GNDB #PWR?
+U 1 1 6291EA55
+P 9100 3150
+F 0 "#PWR?" H 9100 2900 50  0001 C CNN
+F 1 "GNDB" H 9105 2977 50  0000 C CNN
+F 2 "" H 9100 3150 50  0001 C CNN
+F 3 "" H 9100 3150 50  0001 C CNN
+	1    9100 3150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8700 2900 9100 2900
+Wire Wire Line
+	9100 2900 9100 3150
+Text Notes 7750 3500 0    50   ~ 0
+Haven't decided yet on best way to tie grounds together\n
+$Comp
+L power:VCC #PWR?
+U 1 1 6295971A
+P 7550 4900
+F 0 "#PWR?" H 7550 4750 50  0001 C CNN
+F 1 "VCC" H 7565 5073 50  0000 C CNN
+F 2 "" H 7550 4900 50  0001 C CNN
+F 3 "" H 7550 4900 50  0001 C CNN
+	1    7550 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:VCC #PWR?
+U 1 1 62959E41
+P 7550 5300
+F 0 "#PWR?" H 7550 5150 50  0001 C CNN
+F 1 "VCC" H 7565 5473 50  0000 C CNN
+F 2 "" H 7550 5300 50  0001 C CNN
+F 3 "" H 7550 5300 50  0001 C CNN
+	1    7550 5300
+	1    0    0    -1  
+$EndComp
+Text Notes 7300 6000 0    50   ~ 0
+Switched 5VA and 5VB to Vcc on pot connections.\nHaven't tested. To get last cut board to work \ncut traces and put diodes in line. Voltage drop\nseems to have done the trick.
 $EndSCHEMATC
