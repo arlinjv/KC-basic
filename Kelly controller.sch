@@ -6026,22 +6026,11 @@ F 3 "~" H 12600 5200 50  0001 C CNN
 	1    12600 5200
 	-1   0    0    -1  
 $EndComp
-$Comp
-L Switch:SW_SPDT SW1
-U 1 1 61721E5B
-P 4600 950
-F 0 "SW1" H 4600 1235 50  0000 C CNN
-F 1 "FNR" H 4600 1144 50  0000 C CNN
-F 2 "myfootprints:Molex_SL_171971-0003_1x03_P2.54mm_Vertical_wide_pads" H 4600 950 50  0001 C CNN
-F 3 "~" H 4600 950 50  0001 C CNN
-	1    4600 950 
-	-1   0    0    1   
-$EndComp
-Text Label 1050 2950 0    50   ~ 0
+Text Label 1050 2800 0    50   ~ 0
 REV-B
 Text Notes 10200 1550 0    50   ~ 0
 12V powers switches
-Text Label 1050 4700 0    50   ~ 0
+Text Label 900  5100 0    50   ~ 0
 Brake-B
 Text Notes 12900 900  0    50   ~ 0
 Contactor is energized along with \nKelly controller when power\nswitch is engaged.\nMounted off board
@@ -10661,10 +10650,10 @@ BE 35 32 00 C0 BF B1 D5 17 08 04 02 81 40 20 10 7C 23 FF 1F 7D 80 3D 45 3E CF 6B
 EndData
 $EndBitmap
 $Comp
-L power:PWR_FLAG #FLG0102
+L power:PWR_FLAG #FLG08
 U 1 1 61843B71
 P 12650 7250
-F 0 "#FLG0102" H 12650 7325 50  0001 C CNN
+F 0 "#FLG08" H 12650 7325 50  0001 C CNN
 F 1 "PWR_FLAG" V 12600 7350 50  0000 L CNN
 F 2 "" H 12650 7250 50  0001 C CNN
 F 3 "~" H 12650 7250 50  0001 C CNN
@@ -10672,10 +10661,10 @@ F 3 "~" H 12650 7250 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:PWR_FLAG #FLG0103
+L power:PWR_FLAG #FLG06
 U 1 1 618451B3
 P 11050 6800
-F 0 "#FLG0103" H 11050 6875 50  0001 C CNN
+F 0 "#FLG06" H 11050 6875 50  0001 C CNN
 F 1 "PWR_FLAG" V 11050 6927 50  0000 L CNN
 F 2 "" H 11050 6800 50  0001 C CNN
 F 3 "~" H 11050 6800 50  0001 C CNN
@@ -10726,8 +10715,6 @@ F 3 "~" H 950 9500 50  0001 C CNN
 	1    950  9500
 	1    0    0    -1  
 $EndComp
-Text Notes 550  -1350 0    100  ~ 0
-MCU based dual Kelly controller interface board\n- Using Arduino pro micro\n- Concept is to keep Arduino and Kelly controllers electrically isolated\n   except for MCU power\n   - Electrical isolation accomplished by use of digital pot (mcp4251)  for throttle \n     and optocouplers for switches\n\nGeneral Notes:\n- meter signals are 12V so have to be buffered somehow\n\nBuild Notes:\n- Using P52501-4 not ltv247 opto as depicted\n- Not implementing analog brake or foot switch\n\nChanges:\n- First cut of two motor Arduino board had numerous issues. See commit at 2_motor_Arduino_V1 git tag for details. \n  - Most important changes is fixed miswiring of brake connections, and will drop 5/12/48v headers in favor of multiple \n    test points.\n- Added isolated dcdc regulator powered off 48V. No concerns with taxing KC\n\nNext steps:\n- Drop digital pots and go with advice from here: https://forum.allaboutcircuits.com/threads/problems-interfacing-arduino-with-two-motor-controllers.186633/\n\nTo do:\n- At SHDN pin change 5v to VCC\n- Add filter cap (.1 uF) to MCP power pin\n- Bring power lines together?\n- Update board with fixed SPAN02C footprint (will need more room)\n- Consider replacing optos with relays (add power filtering cap to Arduino power system)\n- Consider dropping jst connectors and going with hardwired connections to original automotive connectors.\n- To avoid confusion, consider changing pinout on cables so they have different pin number\n- Add indicator lights. (Power for both sides. Meter lines. Opto lines.  What else?)\n- Make leap to factory board. Think about silk screen markings.\n- Find appropriate DPST (or DPDT) switch to power contactors\n  - Hard to find cheap 48V DC rated panel mount toggle/rocker switches\n  - Digi-Key Part Number CKN9842-ND will do at $8\n- PCB:\n   - For signal lines consider spacing farther apart. (How much cutting time is really saved keeping them close)\n   - Use wider traces and bigger pads wherever possible (too much time spent fixings shorts and lifted pads)\n   - Vias: avoid mid line vias and use 30 mil segments leading to via \n    to make soldering easier. Also make sure vias are outside footprints. \n\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
 Text Notes 13450 5450 0    50   ~ 0
 From: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf
 Text Label 12850 5850 0    50   ~ 0
@@ -13696,15 +13683,15 @@ Text Label 12850 6150 0    50   ~ 0
 REV-B
 Text Label 12850 5950 0    50   ~ 0
 FWD-B
-Text Label 5300 5000 0    50   ~ 0
+Text Label 8200 5150 0    50   ~ 0
 Meter-B
 Text Notes 11350 4750 0    50   ~ 0
 KC connections:\nJ1/J11:\n 1: Foot_SW (blue)\n 2: Brake (12v / gray)\n 3: REV (purple)\n 4: FWD (yellow)\n 5: Brake_AN (green)\n 6: Throttle (white)\nJ2/J12:\n 1: PWR (brown)\n 2: +48V (orange)\n 3: +12V (thick red)\n 4: + 5V (red)\n 5: GND (black)\n 6: Meter (dark gray)\n
 $Comp
-L Connector:Conn_01x06_Female J1
+L Connector:Conn_01x06_Female J7
 U 1 1 61A47E49
 P 11700 6000
-F 0 "J1" H 11592 5475 50  0000 C CNN
+F 0 "J7" H 11592 5475 50  0000 C CNN
 F 1 "Conn_01x06_Female" H 11592 5566 50  0001 C CNN
 F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 11700 6000 50  0001 C CNN
 F 3 "~" H 11700 6000 50  0001 C CNN
@@ -14737,10 +14724,10 @@ $EndBitmap
 Text Notes 5550 8700 0    50   ~ 0
 Brn   Yell RED  Whi Grn  Prpl \n\n\n\n\n\n\nOrng Drk Red  Blk  Blu\n     gry
 $Comp
-L Switch:SW_SPST SW5
+L Switch:SW_SPST SW3
 U 1 1 624479B1
 P 12600 1150
-F 0 "SW5" H 12700 1050 50  0000 L CNN
+F 0 "SW3" H 12700 1050 50  0000 L CNN
 F 1 "Power Switch" H 12500 1250 50  0000 L CNN
 F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 12600 1150 50  0001 C CNN
 F 3 "~" H 12600 1150 50  0001 C CNN
@@ -14748,10 +14735,10 @@ F 3 "~" H 12600 1150 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 $Comp
-L power:PWR_FLAG #FLG0106
+L power:PWR_FLAG #FLG07
 U 1 1 62447C12
 P 12650 3200
-F 0 "#FLG0106" H 12650 3275 50  0001 C CNN
+F 0 "#FLG07" H 12650 3275 50  0001 C CNN
 F 1 "PWR_FLAG" V 12600 3300 50  0000 L CNN
 F 2 "" H 12650 3200 50  0001 C CNN
 F 3 "~" H 12650 3200 50  0001 C CNN
@@ -17723,10 +17710,10 @@ REV-A
 Text Label 12850 1900 0    50   ~ 0
 FWD-A
 $Comp
-L Connector:Conn_01x06_Female J11
+L Connector:Conn_01x06_Female J5
 U 1 1 62447C58
 P 11700 1950
-F 0 "J11" H 11592 1425 50  0000 C CNN
+F 0 "J5" H 11592 1425 50  0000 C CNN
 F 1 "Conn_01x06_Female" H 11592 1516 50  0000 C CNN
 F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 11700 1950 50  0001 C CNN
 F 3 "~" H 11700 1950 50  0001 C CNN
@@ -17734,10 +17721,10 @@ F 3 "~" H 11700 1950 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x06_Female J12
+L Connector:Conn_01x06_Female J6
 U 1 1 62447C75
 P 11700 2850
-F 0 "J12" H 11592 2325 50  0000 C CNN
+F 0 "J6" H 11592 2325 50  0000 C CNN
 F 1 "Conn_01x06_Female" H 11592 2416 50  0000 C CNN
 F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 11700 2850 50  0001 C CNN
 F 3 "~" H 11700 2850 50  0001 C CNN
@@ -17745,10 +17732,10 @@ F 3 "~" H 11700 2850 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:+12VA #PWR012
+L power:+12VA #PWR044
 U 1 1 6245F737
 P 12550 1750
-F 0 "#PWR012" H 12550 1600 50  0001 C CNN
+F 0 "#PWR044" H 12550 1600 50  0001 C CNN
 F 1 "+12VA" H 12565 1923 50  0000 C CNN
 F 2 "" H 12550 1750 50  0001 C CNN
 F 3 "" H 12550 1750 50  0001 C CNN
@@ -17756,10 +17743,10 @@ F 3 "" H 12550 1750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5VA #PWR011
+L power:+5VA #PWR042
 U 1 1 6245FDE8
 P 12450 1650
-F 0 "#PWR011" H 12450 1500 50  0001 C CNN
+F 0 "#PWR042" H 12450 1500 50  0001 C CNN
 F 1 "+5VA" H 12465 1823 50  0000 C CNN
 F 2 "" H 12450 1650 50  0001 C CNN
 F 3 "" H 12450 1650 50  0001 C CNN
@@ -17767,10 +17754,10 @@ F 3 "" H 12450 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDA #PWR013
+L power:GNDA #PWR046
 U 1 1 6246520E
 P 12650 3300
-F 0 "#PWR013" H 12650 3050 50  0001 C CNN
+F 0 "#PWR046" H 12650 3050 50  0001 C CNN
 F 1 "GNDA" H 12655 3127 50  0000 C CNN
 F 2 "" H 12650 3300 50  0001 C CNN
 F 3 "" H 12650 3300 50  0001 C CNN
@@ -17782,10 +17769,10 @@ Text Notes 10900 1950 0    50   ~ 0
 Text Notes 9500 1450 0    50   ~ 0
 48V powers controller\n(pin 7 / pink)
 $Comp
-L power:PWR_FLAG #FLG02
+L power:PWR_FLAG #FLG05
 U 1 1 62471C8E
 P 10850 2100
-F 0 "#FLG02" H 10850 2175 50  0001 C CNN
+F 0 "#FLG05" H 10850 2175 50  0001 C CNN
 F 1 "PWR_FLAG" V 10850 2227 50  0000 L CNN
 F 2 "" H 10850 2100 50  0001 C CNN
 F 3 "~" H 10850 2100 50  0001 C CNN
@@ -17793,23 +17780,23 @@ F 3 "~" H 10850 2100 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:PWR_FLAG #FLG01
+L power:PWR_FLAG #FLG03
 U 1 1 62471C99
 P 10250 2000
-F 0 "#FLG01" H 10250 2075 50  0001 C CNN
+F 0 "#FLG03" H 10250 2075 50  0001 C CNN
 F 1 "PWR_FLAG" V 10250 2127 50  0000 L CNN
 F 2 "" H 10250 2000 50  0001 C CNN
 F 3 "~" H 10250 2000 50  0001 C CNN
 	1    10250 2000
 	0    1    1    0   
 $EndComp
-Text Label 4700 5000 0    50   ~ 0
+Text Label 7600 5150 0    50   ~ 0
 Meter-A
 $Comp
-L my_devices:+48VA #PWR09
+L my_devices:+48VA #PWR028
 U 1 1 6248AA8E
 P 9650 1700
-F 0 "#PWR09" H 9650 1550 50  0001 C CNN
+F 0 "#PWR028" H 9650 1550 50  0001 C CNN
 F 1 "+48VA" H 9665 1873 50  0000 C CNN
 F 2 "" H 9650 1700 50  0001 C CNN
 F 3 "" H 9650 1700 50  0001 C CNN
@@ -17817,10 +17804,10 @@ F 3 "" H 9650 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+5VA #PWR07
+L power:+5VA #PWR036
 U 1 1 6248B147
 P 10850 1900
-F 0 "#PWR07" H 10850 1750 50  0001 C CNN
+F 0 "#PWR036" H 10850 1750 50  0001 C CNN
 F 1 "+5VA" H 10865 2073 50  0000 C CNN
 F 2 "" H 10850 1900 50  0001 C CNN
 F 3 "" H 10850 1900 50  0001 C CNN
@@ -17828,10 +17815,10 @@ F 3 "" H 10850 1900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L my_devices:+48VA #PWR0107
+L my_devices:+48VA #PWR040
 U 1 1 6245E17B
 P 12350 950
-F 0 "#PWR0107" H 12350 800 50  0001 C CNN
+F 0 "#PWR040" H 12350 800 50  0001 C CNN
 F 1 "+48VA" H 12365 1123 50  0000 C CNN
 F 2 "" H 12350 950 50  0001 C CNN
 F 3 "" H 12350 950 50  0001 C CNN
@@ -17839,123 +17826,57 @@ F 3 "" H 12350 950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+12VA #PWR03
+L power:+12VA #PWR032
 U 1 1 624884A7
 P 10250 1800
-F 0 "#PWR03" H 10250 1650 50  0001 C CNN
+F 0 "#PWR032" H 10250 1650 50  0001 C CNN
 F 1 "+12VA" H 10265 1973 50  0000 C CNN
 F 2 "" H 10250 1800 50  0001 C CNN
 F 3 "" H 10250 1800 50  0001 C CNN
 	1    10250 1800
 	1    0    0    -1  
 $EndComp
-Text Label 1100 3700 0    50   ~ 0
+Text Label 1000 2000 0    50   ~ 0
 REV-A
-Text Label 1050 5350 0    50   ~ 0
+Text Label 800  4350 0    50   ~ 0
 Brake-A
 $Comp
-L Isolator:LTV-247 U2
-U 4 1 6254F8C3
-P 1850 6850
-F 0 "U2" H 1850 7175 50  0000 C CNN
-F 1 "LTV-247" H 1850 7084 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1650 6650 50  0001 L CIN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1850 6850 50  0001 L CNN
-	4    1850 6850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Isolator:LTV-247 U2
-U 3 1 62550EDB
-P 1850 6200
-F 0 "U2" H 1850 6525 50  0000 C CNN
-F 1 "LTV-247" H 1850 6434 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1650 6000 50  0001 L CIN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1850 6200 50  0001 L CNN
-	3    1850 6200
-	1    0    0    -1  
-$EndComp
-$Comp
-L Isolator:LTV-247 U2
-U 1 1 62551F67
-P 1800 4600
-F 0 "U2" H 1800 4925 50  0000 C CNN
-F 1 "LTV-247" H 1800 4834 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1600 4400 50  0001 L CIN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1800 4600 50  0001 L CNN
-	1    1800 4600
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Isolator:LTV-247 U2
-U 2 1 6255326D
-P 1800 5250
-F 0 "U2" H 1800 5575 50  0000 C CNN
-F 1 "LTV-247" H 1800 5484 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1600 5050 50  0001 L CIN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1800 5250 50  0001 L CNN
-	2    1800 5250
-	-1   0    0    -1  
-$EndComp
-$Comp
-L Device:R R5
+L Device:R R3
 U 1 1 62412C0C
-P 2450 4500
-F 0 "R5" V 2657 4500 50  0000 C CNN
-F 1 "220" V 2566 4500 50  0000 C CNN
-F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 2380 4500 50  0001 C CNN
-F 3 "~" H 2450 4500 50  0001 C CNN
-	1    2450 4500
+P 2300 4900
+F 0 "R3" V 2507 4900 50  0000 C CNN
+F 1 "1k" V 2416 4900 50  0000 C CNN
+F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 2230 4900 50  0001 C CNN
+F 3 "~" H 2300 4900 50  0001 C CNN
+	1    2300 4900
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GND #PWR017
-U 1 1 6242E078
-P 2200 5450
-F 0 "#PWR017" H 2200 5200 50  0001 C CNN
-F 1 "GND" H 2205 5277 50  0000 C CNN
-F 2 "" H 2200 5450 50  0001 C CNN
-F 3 "" H 2200 5450 50  0001 C CNN
-	1    2200 5450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Switch:SW_Push SW2
-U 1 1 62455AD0
-P 2700 4200
-F 0 "SW2" V 2654 4348 50  0000 L CNN
-F 1 "Brake_SW" V 2745 4348 50  0000 L CNN
-F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 2700 4400 50  0001 C CNN
-F 3 "~" H 2700 4400 50  0001 C CNN
-	1    2700 4200
-	0    1    -1   0   
-$EndComp
-$Comp
-L Device:R R1
+L Device:R R10
 U 1 1 624A6209
-P 5300 5700
-F 0 "R1" V 5200 5700 50  0000 C CNN
-F 1 "1k" V 5400 5750 50  0000 C CNN
-F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 5230 5700 50  0001 C CNN
-F 3 "~" H 5300 5700 50  0001 C CNN
-	1    5300 5700
+P 8200 5850
+F 0 "R10" V 8100 5850 50  0000 C CNN
+F 1 "1k" V 8300 5900 50  0000 C CNN
+F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 8130 5850 50  0001 C CNN
+F 3 "~" H 8200 5850 50  0001 C CNN
+	1    8200 5850
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R R2
+L Device:R R9
 U 1 1 624A6D2B
-P 4700 5700
-F 0 "R2" V 4600 5700 50  0000 C CNN
-F 1 "1k" V 4800 5750 50  0000 C CNN
-F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 4630 5700 50  0001 C CNN
-F 3 "~" H 4700 5700 50  0001 C CNN
-	1    4700 5700
+P 7600 5850
+F 0 "R9" V 7500 5850 50  0000 C CNN
+F 1 "1k" V 7700 5900 50  0000 C CNN
+F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 7530 5850 50  0001 C CNN
+F 3 "~" H 7600 5850 50  0001 C CNN
+	1    7600 5850
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1000 2950 1350 2950
+	1000 2800 1350 2800
 Wire Wire Line
-	1050 4700 1500 4700
+	900  5100 1350 5100
 Wire Wire Line
 	12350 6650 13000 6650
 Wire Wire Line
@@ -18150,113 +18071,41 @@ Connection ~ 12650 3200
 Wire Wire Line
 	12650 3200 12650 3300
 Wire Wire Line
-	4700 5100 4700 4850
+	7600 5250 7600 5000
 Connection ~ 12350 6650
 Wire Wire Line
 	12350 6650 12350 5200
 Wire Wire Line
-	1000 3700 1350 3700
+	1000 2000 3350 2000
 Wire Wire Line
-	1050 5350 1500 5350
+	800  4350 2550 4350
 Wire Wire Line
-	2100 5350 2200 5350
+	2450 4900 2550 4900
 Wire Wire Line
-	2200 5350 2200 5450
+	2550 4200 2550 4350
 Wire Wire Line
-	2100 4700 2200 4700
+	8200 6050 8200 6000
 Wire Wire Line
-	2200 4700 2200 5150
-Wire Wire Line
-	2100 5150 2200 5150
-Wire Wire Line
-	2100 4500 2300 4500
-Wire Wire Line
-	2600 4500 2700 4500
-Wire Wire Line
-	2700 4400 2700 4500
-Wire Wire Line
-	5300 5900 5300 5850
-Wire Wire Line
-	4700 5900 4700 5850
-$Comp
-L Isolator:LTV-247 U1
-U 4 1 6280B2E4
-P 1650 3600
-F 0 "U1" H 1650 3925 50  0000 C CNN
-F 1 "LTV-247" H 1650 3834 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1450 3400 50  0001 L CIN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1650 3600 50  0001 L CNN
-	4    1650 3600
-	-1   0    0    -1  
-$EndComp
+	7600 6050 7600 6000
 $Comp
 L Isolator:LTV-247 U1
 U 3 1 62809D80
-P 1650 2850
-F 0 "U1" H 1650 3175 50  0000 C CNN
-F 1 "LTV-247" H 1650 3084 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1450 2650 50  0001 L CIN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1650 2850 50  0001 L CNN
-	3    1650 2850
+P 1650 5000
+F 0 "U1" H 1650 5325 50  0000 C CNN
+F 1 "LTV-247" H 1650 5234 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1450 4800 50  0001 L CIN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1650 5000 50  0001 L CNN
+	3    1650 5000
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	1000 3500 1350 3500
-Wire Wire Line
-	1350 2750 1000 2750
-$Comp
-L Device:R R4
-U 1 1 6256F870
-P 2300 2750
-F 0 "R4" V 2507 2750 50  0000 C CNN
-F 1 "220" V 2416 2750 50  0000 C CNN
-F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 2230 2750 50  0001 C CNN
-F 3 "~" H 2300 2750 50  0001 C CNN
-	1    2300 2750
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	1950 2750 2150 2750
-Wire Wire Line
-	1950 2950 2150 2950
-Wire Wire Line
-	2150 2950 2150 3500
-Wire Wire Line
-	2150 3500 1950 3500
-$Comp
-L power:GND #PWR016
-U 1 1 625A51C5
-P 2050 3800
-F 0 "#PWR016" H 2050 3550 50  0001 C CNN
-F 1 "GND" H 2055 3627 50  0000 C CNN
-F 2 "" H 2050 3800 50  0001 C CNN
-F 3 "" H 2050 3800 50  0001 C CNN
-	1    2050 3800
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1950 3700 2050 3700
-Wire Wire Line
-	2050 3700 2050 3800
-$Comp
-L power:GND #PWR015
-U 1 1 625B5A60
-P 2050 2350
-F 0 "#PWR015" H 2050 2100 50  0001 C CNN
-F 1 "GND" H 2055 2177 50  0000 C CNN
-F 2 "" H 2050 2350 50  0001 C CNN
-F 3 "" H 2050 2350 50  0001 C CNN
-	1    2050 2350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2450 2750 3350 2750
+	2650 2600 3350 2600
 Wire Wire Line
 	4800 950  5000 950 
 Wire Wire Line
 	5000 950  5000 850 
 Wire Wire Line
-	3350 1050 3350 2750
+	3350 1050 3350 2000
 $Bitmap
 Pos -10300 4000
 Scale 5.000000
@@ -21758,15 +21607,15 @@ DC 6C 36 BF D6 FC 5E 52 A9 D4 AF 9F 3F 68 24 00 0F 42 23 01 00 80 1B F1 B8 7C 7E
 EndData
 $EndBitmap
 Wire Wire Line
-	3100 850  3100 1350
+	3000 850  3000 1350
 Wire Wire Line
-	2450 1350 3100 1350
+	2450 1350 3000 1350
 $Comp
-L Device:R R3
+L Device:R R2
 U 1 1 6255843F
 P 2300 1350
-F 0 "R3" V 2507 1350 50  0000 C CNN
-F 1 "220" V 2416 1350 50  0000 C CNN
+F 0 "R2" V 2507 1350 50  0000 C CNN
+F 1 "1k" V 2416 1350 50  0000 C CNN
 F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 2230 1350 50  0001 C CNN
 F 3 "~" H 2300 1350 50  0001 C CNN
 	1    2300 1350
@@ -21777,9 +21626,9 @@ Wire Wire Line
 Wire Wire Line
 	1950 1350 2150 1350
 Wire Wire Line
-	1000 1950 1000 2050
+	1000 1250 1000 1350
 Wire Wire Line
-	1000 2050 1350 2050
+	1000 1350 1350 1350
 $Comp
 L Isolator:LTV-247 U1
 U 1 1 628077E3
@@ -21792,101 +21641,52 @@ F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	1000 2250 1350 2250
-Text Label 1000 2250 0    50   ~ 0
+	1000 1550 1350 1550
+Text Label 1000 1550 0    50   ~ 0
 FWD-B
 Wire Wire Line
-	2050 2250 2050 2350
+	2050 2800 2050 2900
 Wire Wire Line
-	1950 2250 2050 2250
+	1950 2800 2050 2800
 Wire Wire Line
-	2100 2050 1950 2050
-Wire Wire Line
-	2100 1550 2100 2050
-Wire Wire Line
-	1350 1350 1000 1350
+	2350 2600 1950 2600
 $Comp
 L Isolator:LTV-247 U1
 U 2 1 62808800
-P 1650 2150
-F 0 "U1" H 1650 2475 50  0000 C CNN
-F 1 "LTV-247" H 1650 2384 50  0000 C CNN
-F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1450 1950 50  0001 L CIN
-F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1650 2150 50  0001 L CNN
-	2    1650 2150
+P 1650 2700
+F 0 "U1" H 1650 3025 50  0000 C CNN
+F 1 "LTV-247" H 1650 2934 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1450 2500 50  0001 L CIN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1650 2700 50  0001 L CNN
+	2    1650 2700
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	1000 1550 1350 1550
-Text Label 1050 1550 0    50   ~ 0
+	1000 850  3000 850 
+Text Label 1000 850  0    50   ~ 0
 FWD-A
-Wire Wire Line
-	1000 2750 1000 2650
-$Comp
-L power:+12VA #PWR027
-U 1 1 624DBDD9
-P 1000 3400
-F 0 "#PWR027" H 1000 3250 50  0001 C CNN
-F 1 "+12VA" H 1015 3573 50  0000 C CNN
-F 2 "" H 1000 3400 50  0001 C CNN
-F 3 "" H 1000 3400 50  0001 C CNN
-	1    1000 3400
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1000 3500 1000 3400
-Wire Wire Line
-	1000 1350 1000 1250
-$Comp
-L power:+12VA #PWR026
-U 1 1 624F58F8
-P 1000 1250
-F 0 "#PWR026" H 1000 1100 50  0001 C CNN
-F 1 "+12VA" H 1015 1423 50  0000 C CNN
-F 2 "" H 1000 1250 50  0001 C CNN
-F 3 "" H 1000 1250 50  0001 C CNN
-	1    1000 1250
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	11900 7100 12450 7100
 $Comp
-L Connector:Conn_01x06_Female J2
+L Connector:Conn_01x06_Female J8
 U 1 1 61A8ECFC
 P 11700 6900
-F 0 "J2" H 11592 6375 50  0000 C CNN
+F 0 "J8" H 11592 6375 50  0000 C CNN
 F 1 "Conn_01x06_Female" H 11592 6466 50  0001 C CNN
 F 2 "Connector_Molex:Molex_SL_171971-0006_1x06_P2.54mm_Vertical" H 11700 6900 50  0001 C CNN
 F 3 "~" H 11700 6900 50  0001 C CNN
 	1    11700 6900
 	-1   0    0    1   
 $EndComp
-Text Notes 10150 -4050 0    100  ~ 0
-Troubleshooting notes:\n5/1/22: Wired up new board. Brake and FNR work fine. Throttle is not working properly. Motors run even when\npot turned all the way down. Pot output behaves as it should when connected alone to laptop. Output\nvalues were all over the place when working in the garage. Problem persisted even when motors were \ndisconnected.  Need to try again in garage with laptop connected.\n- when connected to laptop max output is 5kOhm (Vcc = 4.7V)\n- when connected to wall wart max output is 3.9kOhm. (Vcc = 4.9V)\n- when connected to laptop and KCs are connected (without power) max output is 1.3 kOhm\n- On powering KCs voltage range is bt 2.1 and 2.4 volts.\n   - MCP gets hot!!!!\n- Internet research shows dig pots are not isolated. One source says "The voltage on the digital pot must be no more than the power rails to the pot. The arduino and circuit must shair a common ground."\n- combining grounds did not fix issue. With common ground only one side works at all\n\n\nthings to try:\n\n- combine grounds - do this first and see if it corrects wall wart issue\n   -- combining grounds did fix wall wart issue.\n   -- did not fix two motor issue (see above)\n- try putting diode in line w dig pot high sides to get V lower\n- try powering MCP off of one of the KCs\n- No good: power MCP from 12v - chip is only rated to 5.5V\n\nGot some good feedback from here: https://forum.allaboutcircuits.com/threads/problems-interfacing-arduino-with-two-motor-controllers.186633/\nEventually got to work by combining grounds and putting diodes in line with 5VA and 5VB which apparently brought those voltages below Arduino Vcc
 Wire Wire Line
-	1000 5150 1500 5150
+	850  4900 1350 4900
+Wire Wire Line
+	850  4900 850  4800
 $Comp
-L power:+12VA #PWR0102
-U 1 1 6291DBED
-P 1000 5050
-F 0 "#PWR0102" H 1000 4900 50  0001 C CNN
-F 1 "+12VA" H 1015 5223 50  0000 C CNN
-F 2 "" H 1000 5050 50  0001 C CNN
-F 3 "" H 1000 5050 50  0001 C CNN
-	1    1000 5050
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	1000 5150 1000 5050
-Wire Wire Line
-	1000 4500 1500 4500
-Wire Wire Line
-	1000 4500 1000 4400
-$Comp
-L my_devices:+12VB #PWR0113
+L my_devices:+12VB #PWR033
 U 1 1 62BE02CE
 P 10450 6550
-F 0 "#PWR0113" H 10450 6400 50  0001 C CNN
+F 0 "#PWR033" H 10450 6400 50  0001 C CNN
 F 1 "+12VB" H 10465 6723 50  0000 C CNN
 F 2 "" H 10450 6550 50  0001 C CNN
 F 3 "" H 10450 6550 50  0001 C CNN
@@ -21894,10 +21694,10 @@ F 3 "" H 10450 6550 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:PWR_FLAG #FLG0104
+L power:PWR_FLAG #FLG04
 U 1 1 618456AB
 P 10450 6700
-F 0 "#FLG0104" H 10450 6775 50  0001 C CNN
+F 0 "#FLG04" H 10450 6775 50  0001 C CNN
 F 1 "PWR_FLAG" V 10450 6827 50  0000 L CNN
 F 2 "" H 10450 6700 50  0001 C CNN
 F 3 "~" H 10450 6700 50  0001 C CNN
@@ -21910,10 +21710,10 @@ Wire Wire Line
 	10450 6550 10450 6700
 Connection ~ 10450 6700
 $Comp
-L my_devices:+5VB #PWR0114
+L my_devices:+5VB #PWR038
 U 1 1 62C85170
 P 11050 6600
-F 0 "#PWR0114" H 11050 6450 50  0001 C CNN
+F 0 "#PWR038" H 11050 6450 50  0001 C CNN
 F 1 "+5VB" H 11065 6773 50  0000 C CNN
 F 2 "" H 11050 6600 50  0001 C CNN
 F 3 "" H 11050 6600 50  0001 C CNN
@@ -21924,10 +21724,10 @@ Wire Wire Line
 	11050 6600 11050 6800
 Connection ~ 11050 6800
 $Comp
-L my_devices:+48VB #PWR0115
+L my_devices:+48VB #PWR030
 U 1 1 62D5023C
 P 9900 6350
-F 0 "#PWR0115" H 9900 6200 50  0001 C CNN
+F 0 "#PWR030" H 9900 6200 50  0001 C CNN
 F 1 "+48VB" H 9915 6523 50  0000 C CNN
 F 2 "" H 9900 6350 50  0001 C CNN
 F 3 "" H 9900 6350 50  0001 C CNN
@@ -21935,10 +21735,10 @@ F 3 "" H 9900 6350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:PWR_FLAG #FLG0105
+L power:PWR_FLAG #FLG02
 U 1 1 62D50D64
 P 9900 6600
-F 0 "#FLG0105" H 9900 6675 50  0001 C CNN
+F 0 "#FLG02" H 9900 6675 50  0001 C CNN
 F 1 "PWR_FLAG" V 9900 6727 50  0000 L CNN
 F 2 "" H 9900 6600 50  0001 C CNN
 F 3 "~" H 9900 6600 50  0001 C CNN
@@ -21956,10 +21756,10 @@ Wire Wire Line
 	10250 1800 10250 2000
 Connection ~ 10250 2000
 $Comp
-L power:PWR_FLAG #FLG0107
+L power:PWR_FLAG #FLG01
 U 1 1 62EA9268
 P 9650 1900
-F 0 "#FLG0107" H 9650 1975 50  0001 C CNN
+F 0 "#FLG01" H 9650 1975 50  0001 C CNN
 F 1 "PWR_FLAG" V 9650 2027 50  0000 L CNN
 F 2 "" H 9650 1900 50  0001 C CNN
 F 3 "~" H 9650 1900 50  0001 C CNN
@@ -21977,10 +21777,10 @@ Wire Wire Line
 	10850 1900 10850 2100
 Connection ~ 10850 2100
 $Comp
-L my_devices:GNDB #PWR038
+L my_devices:GNDB #PWR047
 U 1 1 62FDF017
 P 12650 7350
-F 0 "#PWR038" H 12650 7100 50  0001 C CNN
+F 0 "#PWR047" H 12650 7100 50  0001 C CNN
 F 1 "GNDB" H 12655 7177 50  0000 C CNN
 F 2 "" H 12650 7350 50  0001 C CNN
 F 3 "" H 12650 7350 50  0001 C CNN
@@ -21988,10 +21788,10 @@ F 3 "" H 12650 7350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L my_devices:+48VB #PWR035
+L my_devices:+48VB #PWR041
 U 1 1 6305443E
 P 12350 5000
-F 0 "#PWR035" H 12350 4850 50  0001 C CNN
+F 0 "#PWR041" H 12350 4850 50  0001 C CNN
 F 1 "+48VB" H 12365 5173 50  0000 C CNN
 F 2 "" H 12350 5000 50  0001 C CNN
 F 3 "" H 12350 5000 50  0001 C CNN
@@ -21999,10 +21799,10 @@ F 3 "" H 12350 5000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L my_devices:+5VB #PWR036
+L my_devices:+5VB #PWR043
 U 1 1 6305551F
 P 12450 5600
-F 0 "#PWR036" H 12450 5450 50  0001 C CNN
+F 0 "#PWR043" H 12450 5450 50  0001 C CNN
 F 1 "+5VB" H 12500 5750 50  0000 C CNN
 F 2 "" H 12450 5600 50  0001 C CNN
 F 3 "" H 12450 5600 50  0001 C CNN
@@ -22010,59 +21810,46 @@ F 3 "" H 12450 5600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L my_devices:+12VB #PWR037
+L my_devices:+12VB #PWR045
 U 1 1 63057F83
 P 12550 5800
-F 0 "#PWR037" H 12550 5650 50  0001 C CNN
+F 0 "#PWR045" H 12550 5650 50  0001 C CNN
 F 1 "+12VB" H 12600 5950 50  0000 C CNN
 F 2 "" H 12550 5800 50  0001 C CNN
 F 3 "" H 12550 5800 50  0001 C CNN
 	1    12550 5800
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2700 3850 2700 4000
-$Comp
-L my_devices:+12VB #PWR01
-U 1 1 6313FE81
-P 1000 1950
-F 0 "#PWR01" H 1000 1800 50  0001 C CNN
-F 1 "+12VB" H 1015 2123 50  0000 C CNN
-F 2 "" H 1000 1950 50  0001 C CNN
-F 3 "" H 1000 1950 50  0001 C CNN
-	1    1000 1950
-	1    0    0    -1  
-$EndComp
 $Comp
 L my_devices:+12VB #PWR02
-U 1 1 6314523A
-P 1000 2650
-F 0 "#PWR02" H 1000 2500 50  0001 C CNN
-F 1 "+12VB" H 1015 2823 50  0000 C CNN
-F 2 "" H 1000 2650 50  0001 C CNN
-F 3 "" H 1000 2650 50  0001 C CNN
-	1    1000 2650
+U 1 1 6313FE81
+P 1000 1250
+F 0 "#PWR02" H 1000 1100 50  0001 C CNN
+F 1 "+12VB" H 1015 1423 50  0000 C CNN
+F 2 "" H 1000 1250 50  0001 C CNN
+F 3 "" H 1000 1250 50  0001 C CNN
+	1    1000 1250
 	1    0    0    -1  
 $EndComp
 $Comp
-L my_devices:+12VB #PWR04
+L my_devices:+12VB #PWR05
 U 1 1 631BD5BF
-P 1000 4400
-F 0 "#PWR04" H 1000 4250 50  0001 C CNN
-F 1 "+12VB" H 1015 4573 50  0000 C CNN
-F 2 "" H 1000 4400 50  0001 C CNN
-F 3 "" H 1000 4400 50  0001 C CNN
-	1    1000 4400
+P 850 4800
+F 0 "#PWR05" H 850 4650 50  0001 C CNN
+F 1 "+12VB" H 865 4973 50  0000 C CNN
+F 2 "" H 850 4800 50  0001 C CNN
+F 3 "" H 850 4800 50  0001 C CNN
+	1    850  4800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	12250 6850 12250 7500
 Connection ~ 12250 6850
 $Comp
-L Connector:TestPoint TP15
+L Connector:TestPoint TP7
 U 1 1 631D7023
 P 12250 7500
-F 0 "TP15" V 12445 7572 50  0000 C CNN
+F 0 "TP7" V 12445 7572 50  0000 C CNN
 F 1 "anbrk" V 12354 7572 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 12450 7500 50  0001 C CNN
 F 3 "~" H 12450 7500 50  0001 C CNN
@@ -22075,10 +21862,10 @@ Wire Wire Line
 	12150 7250 12050 7250
 Connection ~ 12150 6750
 $Comp
-L Connector:TestPoint TP12
+L Connector:TestPoint TP4
 U 1 1 631FFAB1
 P 12050 7250
-F 0 "TP12" V 12100 7350 50  0000 C CNN
+F 0 "TP4" V 12100 7350 50  0000 C CNN
 F 1 "ftsw" V 12000 7450 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 12250 7250 50  0001 C CNN
 F 3 "~" H 12250 7250 50  0001 C CNN
@@ -22092,10 +21879,10 @@ Wire Wire Line
 	12250 2800 12250 3400
 Connection ~ 12250 2800
 $Comp
-L Connector:TestPoint TP13
+L Connector:TestPoint TP5
 U 1 1 6322FAEE
 P 12150 3250
-F 0 "TP13" V 12200 3450 50  0000 C CNN
+F 0 "TP5" V 12200 3450 50  0000 C CNN
 F 1 "ftsw" V 12100 3450 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 12350 3250 50  0001 C CNN
 F 3 "~" H 12350 3250 50  0001 C CNN
@@ -22103,10 +21890,10 @@ F 3 "~" H 12350 3250 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Connector:TestPoint TP14
+L Connector:TestPoint TP6
 U 1 1 632351E0
 P 12250 3400
-F 0 "TP14" V 12300 3350 50  0000 C CNN
+F 0 "TP6" V 12300 3350 50  0000 C CNN
 F 1 "anbrk" V 12200 3400 50  0000 C CNN
 F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 12450 3400 50  0001 C CNN
 F 3 "~" H 12450 3400 50  0001 C CNN
@@ -22114,32 +21901,32 @@ F 3 "~" H 12450 3400 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L my_devices:GNDB #PWR05
+L my_devices:GNDB #PWR017
 U 1 1 632548AF
-P 5300 5900
-F 0 "#PWR05" H 5300 5650 50  0001 C CNN
-F 1 "GNDB" H 5200 5800 50  0000 C CNN
-F 2 "" H 5300 5900 50  0001 C CNN
-F 3 "" H 5300 5900 50  0001 C CNN
-	1    5300 5900
+P 8200 6050
+F 0 "#PWR017" H 8200 5800 50  0001 C CNN
+F 1 "GNDB" H 8200 5900 50  0000 C CNN
+F 2 "" H 8200 6050 50  0001 C CNN
+F 3 "" H 8200 6050 50  0001 C CNN
+	1    8200 6050
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GNDA #PWR06
+L power:GNDA #PWR015
 U 1 1 63256271
-P 4700 5900
-F 0 "#PWR06" H 4700 5650 50  0001 C CNN
-F 1 "GNDA" H 4705 5727 50  0000 C CNN
-F 2 "" H 4700 5900 50  0001 C CNN
-F 3 "" H 4700 5900 50  0001 C CNN
-	1    4700 5900
+P 7600 6050
+F 0 "#PWR015" H 7600 5800 50  0001 C CNN
+F 1 "GNDA" H 7605 5877 50  0000 C CNN
+F 2 "" H 7600 6050 50  0001 C CNN
+F 3 "" H 7600 6050 50  0001 C CNN
+	1    7600 6050
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED D3
+L Device:LED D2
 U 1 1 632B2950
 P 3550 1450
-F 0 "D3" V 3589 1332 50  0000 R CNN
+F 0 "D2" V 3589 1332 50  0000 R CNN
 F 1 "green" V 3498 1332 50  0000 R CNN
 F 2 "myfootprints:LED_D3.0mm_wide_pads" H 3550 1450 50  0001 C CNN
 F 3 "~" H 3550 1450 50  0001 C CNN
@@ -22147,10 +21934,10 @@ F 3 "~" H 3550 1450 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:LED D4
+L Device:LED D3
 U 1 1 632B3300
 P 4000 1450
-F 0 "D4" V 4039 1332 50  0000 R CNN
+F 0 "D3" V 4039 1332 50  0000 R CNN
 F 1 "green" V 3948 1332 50  0000 R CNN
 F 2 "myfootprints:LED_D3.0mm_wide_pads" H 4000 1450 50  0001 C CNN
 F 3 "~" H 4000 1450 50  0001 C CNN
@@ -22165,21 +21952,10 @@ Connection ~ 4000 2400
 Wire Wire Line
 	4000 2400 4000 2600
 $Comp
-L power:GND #PWR010
-U 1 1 63374266
-P 4000 2600
-F 0 "#PWR010" H 4000 2350 50  0001 C CNN
-F 1 "GND" H 4005 2427 50  0000 C CNN
-F 2 "" H 4000 2600 50  0001 C CNN
-F 3 "" H 4000 2600 50  0001 C CNN
-	1    4000 2600
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GNDA #PWR034
+L power:GNDA #PWR029
 U 1 1 633D8EC9
 P 9850 2400
-F 0 "#PWR034" H 9850 2150 50  0001 C CNN
+F 0 "#PWR029" H 9850 2150 50  0001 C CNN
 F 1 "GNDA" H 9855 2227 50  0000 C CNN
 F 2 "" H 9850 2400 50  0001 C CNN
 F 3 "" H 9850 2400 50  0001 C CNN
@@ -22195,10 +21971,10 @@ Wire Wire Line
 Wire Wire Line
 	10050 6900 10050 7100
 $Comp
-L my_devices:GNDB #PWR033
+L my_devices:GNDB #PWR031
 U 1 1 63408158
 P 10050 7100
-F 0 "#PWR033" H 10050 6850 50  0001 C CNN
+F 0 "#PWR031" H 10050 6850 50  0001 C CNN
 F 1 "GNDB" H 10055 6927 50  0000 C CNN
 F 2 "" H 10050 7100 50  0001 C CNN
 F 3 "" H 10050 7100 50  0001 C CNN
@@ -22206,33 +21982,33 @@ F 3 "" H 10050 7100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:LED D1
+L Device:LED D5
 U 1 1 6366F492
-P 5300 5250
-F 0 "D1" H 5293 4995 50  0000 C CNN
-F 1 "yellow" H 5293 5086 50  0000 C CNN
-F 2 "myfootprints:LED_D3.0mm_wide_pads" H 5300 5250 50  0001 C CNN
-F 3 "~" H 5300 5250 50  0001 C CNN
-	1    5300 5250
+P 8200 5400
+F 0 "D5" H 8193 5145 50  0000 C CNN
+F 1 "yellow" H 8193 5236 50  0000 C CNN
+F 2 "myfootprints:LED_D3.0mm_wide_pads" H 8200 5400 50  0001 C CNN
+F 3 "~" H 8200 5400 50  0001 C CNN
+	1    8200 5400
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	5300 4850 5300 5100
+	8200 5000 8200 5250
 Wire Wire Line
-	5300 5400 5300 5550
+	8200 5550 8200 5700
 $Comp
-L Device:LED D2
+L Device:LED D4
 U 1 1 636D7DC2
-P 4700 5250
-F 0 "D2" H 4800 5200 50  0000 C CNN
-F 1 "yellow" H 4850 5350 50  0000 C CNN
-F 2 "myfootprints:LED_D3.0mm_wide_pads" H 4700 5250 50  0001 C CNN
-F 3 "~" H 4700 5250 50  0001 C CNN
-	1    4700 5250
+P 7600 5400
+F 0 "D4" H 7700 5350 50  0000 C CNN
+F 1 "yellow" H 7750 5500 50  0000 C CNN
+F 2 "myfootprints:LED_D3.0mm_wide_pads" H 7600 5400 50  0001 C CNN
+F 3 "~" H 7600 5400 50  0001 C CNN
+	1    7600 5400
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	4700 5400 4700 5550
+	7600 5550 7600 5700
 $Comp
 L Device:LED D6
 U 1 1 637A0EE8
@@ -22245,10 +22021,10 @@ F 3 "~" H 10850 2350 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L power:GNDA #PWR040
+L power:GNDA #PWR037
 U 1 1 637A1D35
 P 10850 2900
-F 0 "#PWR040" H 10850 2650 50  0001 C CNN
+F 0 "#PWR037" H 10850 2650 50  0001 C CNN
 F 1 "GNDA" H 10855 2727 50  0000 C CNN
 F 2 "" H 10850 2900 50  0001 C CNN
 F 3 "" H 10850 2900 50  0001 C CNN
@@ -22256,10 +22032,10 @@ F 3 "" H 10850 2900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R10
+L Device:R R13
 U 1 1 637A3873
 P 10850 2700
-F 0 "R10" H 10920 2746 50  0000 L CNN
+F 0 "R13" H 10920 2746 50  0000 L CNN
 F 1 "1k" H 10920 2655 50  0000 L CNN
 F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 10780 2700 50  0001 C CNN
 F 3 "~" H 10850 2700 50  0001 C CNN
@@ -22273,10 +22049,10 @@ Wire Wire Line
 Wire Wire Line
 	10850 2850 10850 2900
 $Comp
-L Device:LED D5
+L Device:LED D7
 U 1 1 638383DE
 P 11050 7050
-F 0 "D5" V 11089 6932 50  0000 R CNN
+F 0 "D7" V 11089 6932 50  0000 R CNN
 F 1 "RED" V 10998 6932 50  0000 R CNN
 F 2 "myfootprints:LED_D3.0mm_wide_pads" H 11050 7050 50  0001 C CNN
 F 3 "~" H 11050 7050 50  0001 C CNN
@@ -22284,10 +22060,10 @@ F 3 "~" H 11050 7050 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:R R9
+L Device:R R14
 U 1 1 63838846
 P 11050 7400
-F 0 "R9" H 11120 7446 50  0000 L CNN
+F 0 "R14" H 11120 7446 50  0000 L CNN
 F 1 "1k" H 11120 7355 50  0000 L CNN
 F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 10980 7400 50  0001 C CNN
 F 3 "~" H 11050 7400 50  0001 C CNN
@@ -22312,10 +22088,10 @@ F 3 "" H 11050 7600 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x04_Female J8
+L Connector:Conn_01x04_Female J3
 U 1 1 62736554
 P 9250 2100
-F 0 "J8" H 9142 1675 50  0000 C CNN
+F 0 "J3" H 9142 1675 50  0000 C CNN
 F 1 "A_5_12_48" H 9142 1766 50  0000 C CNN
 F 2 "myfootprints:PinHeader_1x04_P2.54mm_Vertical_wide_pads" H 9250 2100 50  0001 C CNN
 F 3 "~" H 9250 2100 50  0001 C CNN
@@ -22323,10 +22099,10 @@ F 3 "~" H 9250 2100 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:Conn_01x04_Female J7
+L Connector:Conn_01x04_Female J4
 U 1 1 6281B5F2
 P 9450 6800
-F 0 "J7" H 9342 6375 50  0000 C CNN
+F 0 "J4" H 9342 6375 50  0000 C CNN
 F 1 "B_5_12_48" H 9342 6466 50  0000 C CNN
 F 2 "myfootprints:PinHeader_1x04_P2.54mm_Vertical_wide_pads" H 9450 6800 50  0001 C CNN
 F 3 "~" H 9450 6800 50  0001 C CNN
@@ -22336,10 +22112,10 @@ $EndComp
 Wire Wire Line
 	9650 6800 11050 6800
 $Comp
-L Device:R R11
+L Device:R R7
 U 1 1 6293A04B
 P 3550 1850
-F 0 "R11" H 3620 1896 50  0000 L CNN
+F 0 "R7" H 3620 1896 50  0000 L CNN
 F 1 "2.2k" H 3620 1805 50  0000 L CNN
 F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 3480 1850 50  0001 C CNN
 F 3 "~" H 3550 1850 50  0001 C CNN
@@ -22347,10 +22123,10 @@ F 3 "~" H 3550 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Device:R R12
+L Device:R R8
 U 1 1 6293A605
 P 4000 1850
-F 0 "R12" H 4070 1896 50  0000 L CNN
+F 0 "R8" H 4070 1896 50  0000 L CNN
 F 1 "2.2k" H 4070 1805 50  0000 L CNN
 F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 3930 1850 50  0001 C CNN
 F 3 "~" H 4000 1850 50  0001 C CNN
@@ -22364,7 +22140,7 @@ Wire Wire Line
 Wire Wire Line
 	4000 2000 4000 2400
 Wire Wire Line
-	3100 850  4000 850 
+	3000 850  4000 850 
 Wire Wire Line
 	3350 1050 3550 1050
 Wire Wire Line
@@ -22377,473 +22153,482 @@ Wire Wire Line
 Connection ~ 3550 1050
 Wire Wire Line
 	3550 1050 4400 1050
-$Comp
-L Device:Jumper JP?
-U 1 1 628C9383
-P 9800 3800
-F 0 "JP?" H 9800 4064 50  0000 C CNN
-F 1 "Jumper" H 9800 3973 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9800 3800 50  0001 C CNN
-F 3 "~" H 9800 3800 50  0001 C CNN
-	1    9800 3800
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:Jumper JP?
-U 1 1 628CF9D3
-P 9800 4200
-F 0 "JP?" H 9800 4464 50  0000 C CNN
-F 1 "Jumper" H 9800 4373 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9800 4200 50  0001 C CNN
-F 3 "~" H 9800 4200 50  0001 C CNN
-	1    9800 4200
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR?
-U 1 1 628D0193
-P 9300 4500
-F 0 "#PWR?" H 9300 4250 50  0001 C CNN
-F 1 "GND" H 9305 4327 50  0000 C CNN
-F 2 "" H 9300 4500 50  0001 C CNN
-F 3 "" H 9300 4500 50  0001 C CNN
-	1    9300 4500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	9500 3800 9300 3800
-Wire Wire Line
-	9300 3800 9300 4200
-Wire Wire Line
-	9500 4200 9300 4200
-Connection ~ 9300 4200
-Wire Wire Line
-	9300 4200 9300 4500
-$Comp
-L power:GNDA #PWR?
-U 1 1 629030A9
-P 10500 3950
-F 0 "#PWR?" H 10500 3700 50  0001 C CNN
-F 1 "GNDA" H 10505 3777 50  0000 C CNN
-F 2 "" H 10500 3950 50  0001 C CNN
-F 3 "" H 10500 3950 50  0001 C CNN
-	1    10500 3950
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10100 3800 10500 3800
-Wire Wire Line
-	10500 3800 10500 3950
-$Comp
-L my_devices:GNDB #PWR?
-U 1 1 6291EA55
-P 10500 4450
-F 0 "#PWR?" H 10500 4200 50  0001 C CNN
-F 1 "GNDB" H 10505 4277 50  0000 C CNN
-F 2 "" H 10500 4450 50  0001 C CNN
-F 3 "" H 10500 4450 50  0001 C CNN
-	1    10500 4450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10100 4200 10500 4200
-Wire Wire Line
-	10500 4200 10500 4450
-Text Notes 9150 4800 0    50   ~ 0
-In case need to tie grounds together\n
-Text Label 7000 6000 0    50   ~ 0
+Text Label 7550 4600 0    50   ~ 0
 Throttle-A
 $Comp
 L Device:R_POT RV1
 U 1 1 62735C1F
-P 6650 5150
-F 0 "RV1" H 6800 5350 50  0000 C CNN
-F 1 "trim(1k)" H 6800 5450 50  0000 C CNN
-F 2 "myfootprints:Molex_SL_171971-0003_1x03_P2.54mm_Vertical_wide_pads" H 6650 5150 50  0001 C CNN
-F 3 "~" H 6650 5150 50  0001 C CNN
-	1    6650 5150
+P 7200 3750
+F 0 "RV1" H 7350 3950 50  0000 C CNN
+F 1 "trim(1k)" H 7350 4050 50  0000 C CNN
+F 2 "myfootprints:trimpot_breadboard_spacing" H 7200 3750 50  0001 C CNN
+F 3 "~" H 7200 3750 50  0001 C CNN
+	1    7200 3750
 	-1   0    0    -1  
 $EndComp
 $Comp
-L Device:R R8
+L Device:R R11
 U 1 1 626D8FE7
-P 6400 5550
-F 0 "R8" H 6300 5550 50  0000 C CNN
-F 1 "1k" H 6300 5650 50  0000 C CNN
-F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 6330 5550 50  0001 C CNN
-F 3 "~" H 6400 5550 50  0001 C CNN
-	1    6400 5550
+P 6950 4150
+F 0 "R11" H 6850 4150 50  0000 C CNN
+F 1 "1k" H 6850 4250 50  0000 C CNN
+F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 6880 4150 50  0001 C CNN
+F 3 "~" H 6950 4150 50  0001 C CNN
+	1    6950 4150
 	-1   0    0    1   
 $EndComp
 $Comp
-L Device:R_POT_Dual RV?
+L Device:R_POT_Dual RV2
 U 1 1 62A24D5B
-P 7200 5000
-F 0 "RV?" H 7200 4675 50  0000 C CNN
-F 1 "throttle(10k)" H 7200 4766 50  0000 C CNN
-F 2 "" H 7450 4925 50  0001 C CNN
-F 3 "~" H 7450 4925 50  0001 C CNN
-	1    7200 5000
+P 7750 3600
+F 0 "RV2" H 7750 3275 50  0000 C CNN
+F 1 "throttle(10k)" H 7750 3366 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 8000 3525 50  0001 C CNN
+F 3 "~" H 8000 3525 50  0001 C CNN
+	1    7750 3600
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	6800 4900 6650 4900
+	7350 3500 7200 3500
 Wire Wire Line
-	6650 4900 6650 5000
+	7200 3500 7200 3600
 $Comp
-L Device:R_POT RV?
+L Device:R_POT RV3
 U 1 1 62A56DC1
-P 7850 5150
-F 0 "RV?" H 8000 5350 50  0000 C CNN
-F 1 "trim(1k)" H 8000 5450 50  0000 C CNN
-F 2 "myfootprints:Molex_SL_171971-0003_1x03_P2.54mm_Vertical_wide_pads" H 7850 5150 50  0001 C CNN
-F 3 "~" H 7850 5150 50  0001 C CNN
-	1    7850 5150
+P 8400 3750
+F 0 "RV3" H 8550 3950 50  0000 C CNN
+F 1 "trim(1k)" H 8550 4050 50  0000 C CNN
+F 2 "myfootprints:trimpot_breadboard_spacing" H 8400 3750 50  0001 C CNN
+F 3 "~" H 8400 3750 50  0001 C CNN
+	1    8400 3750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6400 5700 6400 5800
-$Comp
-L power:+5VA #PWR?
-U 1 1 62AF7FEF
-P 7100 4550
-F 0 "#PWR?" H 7100 4400 50  0001 C CNN
-F 1 "+5VA" H 7115 4723 50  0000 C CNN
-F 2 "" H 7100 4550 50  0001 C CNN
-F 3 "" H 7100 4550 50  0001 C CNN
-	1    7100 4550
-	1    0    0    -1  
-$EndComp
+	6950 4300 6950 4400
 Wire Wire Line
-	7100 4550 7100 4900
+	7650 3150 7650 3500
 $Comp
-L my_devices:+5VB #PWR?
+L my_devices:+5VB #PWR022
 U 1 1 62B0CA84
-P 7300 4550
-F 0 "#PWR?" H 7300 4400 50  0001 C CNN
-F 1 "+5VB" H 7350 4700 50  0000 C CNN
-F 2 "" H 7300 4550 50  0001 C CNN
-F 3 "" H 7300 4550 50  0001 C CNN
-	1    7300 4550
+P 7850 3150
+F 0 "#PWR022" H 7850 3000 50  0001 C CNN
+F 1 "+5VB" H 7900 3300 50  0000 C CNN
+F 2 "" H 7850 3150 50  0001 C CNN
+F 3 "" H 7850 3150 50  0001 C CNN
+	1    7850 3150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7300 4550 7300 4900
+	7850 3150 7850 3500
 Wire Wire Line
-	7600 4900 7850 4900
+	8150 3500 8400 3500
 Wire Wire Line
-	7850 4900 7850 5000
+	8400 3500 8400 3600
 $Comp
-L Device:R R?
+L Device:R R12
 U 1 1 62B34EA3
-P 8100 5500
-F 0 "R?" H 8000 5500 50  0000 C CNN
-F 1 "1k" H 8000 5600 50  0000 C CNN
-F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 8030 5500 50  0001 C CNN
-F 3 "~" H 8100 5500 50  0001 C CNN
-	1    8100 5500
+P 8650 4100
+F 0 "R12" H 8550 4100 50  0000 C CNN
+F 1 "1k" H 8550 4200 50  0000 C CNN
+F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 8580 4100 50  0001 C CNN
+F 3 "~" H 8650 4100 50  0001 C CNN
+	1    8650 4100
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8100 5650 8100 5750
+	8650 4250 8650 4350
 $Comp
-L power:GNDA #PWR?
+L power:GNDA #PWR019
 U 1 1 62B618F4
-P 6400 5800
-F 0 "#PWR?" H 6400 5550 50  0001 C CNN
-F 1 "GNDA" H 6405 5627 50  0000 C CNN
-F 2 "" H 6400 5800 50  0001 C CNN
-F 3 "" H 6400 5800 50  0001 C CNN
-	1    6400 5800
+P 6950 4400
+F 0 "#PWR019" H 6950 4150 50  0001 C CNN
+F 1 "GNDA" H 6955 4227 50  0000 C CNN
+F 2 "" H 6950 4400 50  0001 C CNN
+F 3 "" H 6950 4400 50  0001 C CNN
+	1    6950 4400
 	1    0    0    -1  
 $EndComp
 $Comp
-L my_devices:GNDB #PWR?
+L my_devices:GNDB #PWR025
 U 1 1 62B637D8
-P 8100 5750
-F 0 "#PWR?" H 8100 5500 50  0001 C CNN
-F 1 "GNDB" H 8105 5577 50  0000 C CNN
-F 2 "" H 8100 5750 50  0001 C CNN
-F 3 "" H 8100 5750 50  0001 C CNN
-	1    8100 5750
+P 8650 4350
+F 0 "#PWR025" H 8650 4100 50  0001 C CNN
+F 1 "GNDB" H 8655 4177 50  0000 C CNN
+F 2 "" H 8650 4350 50  0001 C CNN
+F 3 "" H 8650 4350 50  0001 C CNN
+	1    8650 4350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6950 5100 6950 6000
+	7500 3700 7500 4600
 Wire Wire Line
-	6950 6000 7450 6000
+	7500 4600 8000 4600
 Wire Wire Line
-	7450 5100 7450 5900
+	8000 3700 8000 4500
 Wire Wire Line
-	7450 5900 7850 5900
-Text Label 7500 5900 0    50   ~ 0
+	8000 4500 8400 4500
+Text Label 8050 4500 0    50   ~ 0
 Throttle-B
 $Comp
-L Device:LED D?
+L Device:LED D1
 U 1 1 62C984B0
-P 2700 4850
-F 0 "D?" H 2693 4595 50  0000 C CNN
-F 1 "yellow" H 2693 4686 50  0000 C CNN
-F 2 "myfootprints:LED_D3.0mm_wide_pads" H 2700 4850 50  0001 C CNN
-F 3 "~" H 2700 4850 50  0001 C CNN
-	1    2700 4850
+P 2550 5250
+F 0 "D1" H 2543 4995 50  0000 C CNN
+F 1 "yellow" H 2543 5086 50  0000 C CNN
+F 2 "myfootprints:LED_D3.0mm_wide_pads" H 2550 5250 50  0001 C CNN
+F 3 "~" H 2550 5250 50  0001 C CNN
+	1    2550 5250
 	0    -1   -1   0   
 $EndComp
 $Comp
-L Device:R R?
+L Device:R R4
 U 1 1 62C99B72
-P 2700 5300
-F 0 "R?" V 2600 5300 50  0000 C CNN
-F 1 "2.2k" V 2800 5350 50  0000 C CNN
-F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 2630 5300 50  0001 C CNN
-F 3 "~" H 2700 5300 50  0001 C CNN
-	1    2700 5300
+P 2550 5700
+F 0 "R4" V 2450 5700 50  0000 C CNN
+F 1 "2.2k" V 2650 5750 50  0000 C CNN
+F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 2480 5700 50  0001 C CNN
+F 3 "~" H 2550 5700 50  0001 C CNN
+	1    2550 5700
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	2700 4500 2700 4700
-Connection ~ 2700 4500
+	2550 4900 2550 5100
+Connection ~ 2550 4900
 Wire Wire Line
-	2700 5000 2700 5150
+	2550 5400 2550 5550
+Wire Wire Line
+	2550 5850 2550 5950
+Wire Wire Line
+	7050 3750 6950 3750
+Wire Wire Line
+	6950 3750 6950 4000
+Wire Wire Line
+	8550 3750 8650 3750
+Wire Wire Line
+	8650 3750 8650 3950
 $Comp
-L power:GND #PWR?
-U 1 1 62CDD9F6
-P 2700 5550
-F 0 "#PWR?" H 2700 5300 50  0001 C CNN
-F 1 "GND" H 2705 5377 50  0000 C CNN
-F 2 "" H 2700 5550 50  0001 C CNN
-F 3 "" H 2700 5550 50  0001 C CNN
-	1    2700 5550
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	2700 5450 2700 5550
-Wire Wire Line
-	6500 5150 6400 5150
-Wire Wire Line
-	6400 5150 6400 5400
-Wire Wire Line
-	8000 5150 8100 5150
-Wire Wire Line
-	8100 5150 8100 5350
-$Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP2
 U 1 1 62F3A830
-P 7450 6000
-F 0 "TP?" H 7508 6118 50  0000 L CNN
-F 1 "T_A" H 7500 6200 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 7650 6000 50  0001 C CNN
-F 3 "~" H 7650 6000 50  0001 C CNN
-	1    7450 6000
+P 8000 4600
+F 0 "TP2" H 8058 4718 50  0000 L CNN
+F 1 "T_A" H 8050 4800 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8200 4600 50  0001 C CNN
+F 3 "~" H 8200 4600 50  0001 C CNN
+	1    8000 4600
 	-1   0    0    1   
 $EndComp
 $Comp
-L Connector:TestPoint TP?
+L Connector:TestPoint TP3
 U 1 1 62F4C6AD
-P 7850 5900
-F 0 "TP?" H 7908 6018 50  0000 L CNN
-F 1 "T_B" H 7900 6100 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8050 5900 50  0001 C CNN
-F 3 "~" H 8050 5900 50  0001 C CNN
-	1    7850 5900
+P 8400 4500
+F 0 "TP3" H 8458 4618 50  0000 L CNN
+F 1 "T_B" H 8450 4700 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 8600 4500 50  0001 C CNN
+F 3 "~" H 8600 4500 50  0001 C CNN
+	1    8400 4500
 	-1   0    0    1   
 $EndComp
 $Comp
-L my_devices:GNDB #PWR041
-U 1 1 62C3B68C
-P 6800 1650
-F 0 "#PWR041" H 6800 1400 50  0001 C CNN
-F 1 "GNDB" H 6805 1477 50  0000 C CNN
-F 2 "" H 6800 1650 50  0001 C CNN
-F 3 "" H 6800 1650 50  0001 C CNN
-	1    6800 1650
-	1    0    0    -1  
-$EndComp
-$Comp
-L my_devices:+48VB #PWR031
-U 1 1 62C3715D
-P 6150 550
-F 0 "#PWR031" H 6150 400 50  0001 C CNN
-F 1 "+48VB" H 6165 723 50  0000 C CNN
-F 2 "" H 6150 550 50  0001 C CNN
-F 3 "" H 6150 550 50  0001 C CNN
-	1    6150 550 
+L power:+12VA #PWR013
+U 1 1 6290EFBD
+P 4350 2950
+F 0 "#PWR013" H 4350 2800 50  0001 C CNN
+F 1 "+12VA" H 4365 3123 50  0000 C CNN
+F 2 "" H 4350 2950 50  0001 C CNN
+F 3 "" H 4350 2950 50  0001 C CNN
+	1    4350 2950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	7000 800  7000 1100
+	4350 2950 4350 3300
 Wire Wire Line
-	6750 800  7000 800 
+	4350 3300 4550 3300
+Wire Wire Line
+	4350 3300 4350 3400
+Wire Wire Line
+	4350 3400 4550 3400
+Connection ~ 4350 3300
+Text Notes 4850 3650 0    50   ~ 0
+FNR connector Pinout\n1 - 12V; Pin 1 (Black)\n2 - 12V; Pin 4 (Brown)\n3 - D; Pin 2 (White)\n4 - R; Pin 3 (Purple)\n5 - GND; Pin 5 (Green)
+Connection ~ 3000 1350
+Wire Wire Line
+	3000 3500 4550 3500
+Connection ~ 3350 2600
+Wire Wire Line
+	3350 3600 4550 3600
+Wire Wire Line
+	4550 3700 4450 3700
+Wire Wire Line
+	4450 3700 4450 3900
+NoConn ~ 8400 3900
+NoConn ~ 7200 3900
 $Comp
-L Device:Jumper JP1
-U 1 1 62A0C318
-P 6450 800
-F 0 "JP1" H 6450 1064 50  0000 C CNN
-F 1 "Jumper" H 6450 973 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 6450 800 50  0001 C CNN
-F 3 "~" H 6450 800 50  0001 C CNN
-	1    6450 800 
-	1    0    0    -1  
+L Switch:SW_Push SW1
+U 1 1 62455AD0
+P 2550 4000
+F 0 "SW1" V 2504 4148 50  0000 L CNN
+F 1 "Brake_SW" V 2595 4148 50  0000 L CNN
+F 2 "Connector_Molex:Molex_SL_171971-0002_1x02_P2.54mm_Vertical" H 2550 4200 50  0001 C CNN
+F 3 "~" H 2550 4200 50  0001 C CNN
+	1    2550 4000
+	0    1    -1   0   
 $EndComp
-Wire Wire Line
-	8500 1400 8500 1600
-Wire Wire Line
-	8500 950  8500 1200
 $Comp
-L my_devices:SPAN02C-05 U4
-U 1 1 626C7825
-P 7700 1300
-F 0 "U4" H 7700 1775 50  0000 C CNN
-F 1 "SPAN02C-05" H 7700 1684 50  0000 C CNN
-F 2 "myfootprints:SPAN02" H 7700 950 50  0001 C CIN
-F 3 "https://media.digikey.com/pdf/Data%20Sheets/Mean%20Well%20PDF's/SPAN02,DPAN02_Series_Ds.pdf" H 7700 850 50  0001 C CNN
-	1    7700 1300
-	1    0    0    -1  
-$EndComp
-Connection ~ 8500 1400
-Wire Wire Line
-	8600 1300 8700 1300
-Wire Wire Line
-	8600 1400 8600 1300
-Wire Wire Line
-	8500 1400 8600 1400
-Connection ~ 8500 1200
-Wire Wire Line
-	8500 1200 8700 1200
-Wire Wire Line
-	8200 1400 8500 1400
-Wire Wire Line
-	8200 1200 8500 1200
-$Comp
-L Connector:Conn_01x02_Female J6
-U 1 1 630A055C
-P 8900 1200
-F 0 "J6" H 8928 1176 50  0000 L CNN
-F 1 "Board power" H 8928 1085 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8900 1200 50  0001 C CNN
-F 3 "~" H 8900 1200 50  0001 C CNN
-	1    8900 1200
+L power:+5VA #PWR021
+U 1 1 62AF7FEF
+P 7650 3150
+F 0 "#PWR021" H 7650 3000 50  0001 C CNN
+F 1 "+5VA" H 7665 3323 50  0000 C CNN
+F 2 "" H 7650 3150 50  0001 C CNN
+F 3 "" H 7650 3150 50  0001 C CNN
+	1    7650 3150
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR032
-U 1 1 6309C4AB
-P 8500 1600
-F 0 "#PWR032" H 8500 1350 50  0001 C CNN
-F 1 "GND" H 8505 1427 50  0000 C CNN
-F 2 "" H 8500 1600 50  0001 C CNN
-F 3 "" H 8500 1600 50  0001 C CNN
-	1    8500 1600
-	1    0    0    -1  
-$EndComp
-$Comp
-L SparkFun-PowerSymbols:5V #SUPPLY03
-U 1 1 6309B317
-P 8500 950
-F 0 "#SUPPLY03" H 8550 950 45  0001 L BNN
-F 1 "5V" H 8500 1120 45  0000 C CNN
-F 2 "XXX-00000" H 8500 1131 60  0001 C CNN
-F 3 "" H 8500 950 60  0001 C CNN
-	1    8500 950 
+L Switch:SW_SPDT SW2
+U 1 1 61721E5B
+P 4600 950
+F 0 "SW2" H 4600 1235 50  0000 C CNN
+F 1 "FNR" H 4600 1144 50  0000 C CNN
+F 2 "myfootprints:Molex_SL_171971-0003_1x03_P2.54mm_Vertical_wide_pads" H 4600 950 50  0001 C CNN
+F 3 "~" H 4600 950 50  0001 C CNN
+	1    4600 950 
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	6400 1300 7200 1300
 $Comp
-L Connector:TestPoint TP1
-U 1 1 62ABFE0F
-P 6400 1300
-F 0 "TP1" H 6458 1418 50  0000 L CNN
-F 1 "RC" H 6458 1327 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 6600 1300 50  0001 C CNN
-F 3 "~" H 6600 1300 50  0001 C CNN
-	1    6400 1300
+L Connector:Conn_01x05_Female J1
+U 1 1 62905E65
+P 4750 3500
+F 0 "J1" H 4600 3850 50  0000 L CNN
+F 1 "FNR switch" H 4550 4000 50  0000 L CNN
+F 2 "Connector_Molex:Molex_SL_171971-0005_1x05_P2.54mm_Vertical" H 4750 3500 50  0001 C CNN
+F 3 "~" H 4750 3500 50  0001 C CNN
+	1    4750 3500
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6800 1500 7200 1500
-Wire Wire Line
-	6800 1650 6800 1500
-Wire Wire Line
-	7000 1100 7200 1100
-Wire Wire Line
-	6150 550  6150 800 
+Text Notes 550  -1350 0    100  ~ 0
+Barebones dual motor control board. Using dual pots to enable complete isolation between controllers\n\nBuild Notes:\n- Not implementing analog brake or foot switch\n\nChanges:\n- Removed arduino and digital pot and saved to new branch - two_motors_no_Arduino\n\nNext steps:\n\nTo do:\n- Add fuses for power lines\n- Update board with fixed SPAN02C footprint (will need more room)\n- Consider replacing optos with relays (add power filtering cap to Arduino power system)\n- Consider dropping jst connectors and going with hardwired connections to original automotive connectors.\n- To avoid confusion, consider changing pinout on cables so they have different pin number\n- Find appropriate DPST (or DPDT) switch to power contactors\n  - Hard to find cheap 48V DC rated panel mount toggle/rocker switches\n  - Digi-Key Part Number CKN9842-ND will do at $8\n- PCB:\n   - For signal lines consider spacing farther apart. (How much cutting time is really saved keeping them close)\n   - Use wider traces and bigger pads wherever possible (too much time spent fixings shorts and lifted pads)\n   - Vias: avoid mid line vias and use 30 mil segments leading to via \n    to make soldering easier. Also make sure vias are outside footprints. \n\n\nURLs:\n- KLS controller manual: https://kellycontroller.com/wp-content/uploads/kls-nm/KellyKLS-N-UserManualV2.7.pdf\n- Control box and assembly schematic: https://kellycontroller.com/wp-content/uploads/kls-h/KLS-DHMN-CAD-Model-1130.pdf\n- Display datasheet: https://drive.google.com/file/d/12TWD7V3HLI8IPtFdbf37xQo0YPuW2e0G/view
 $Comp
-L power:VCC #PWR08
-U 1 1 6312A1A2
-P 2700 3850
-F 0 "#PWR08" H 2700 3700 50  0001 C CNN
-F 1 "VCC" H 2715 4023 50  0000 C CNN
-F 2 "" H 2700 3850 50  0001 C CNN
-F 3 "" H 2700 3850 50  0001 C CNN
-	1    2700 3850
+L SparkFun-Hardware:STAND-OFF H6
+U 1 1 629FDCAE
+P 2150 8850
+F 0 "H6" H 2150 8950 45  0001 C CNN
+F 1 "STAND-OFF" H 2150 8750 45  0001 C CNN
+F 2 "Hardware:STAND-OFF" H 2150 9000 20  0001 C CNN
+F 3 "" H 2150 8850 50  0001 C CNN
+F 4 "XXX-00000" H 2228 8850 60  0000 L CNN "Field4"
+	1    2150 8850
+	1    0    0    -1  
+$EndComp
+Text Notes 2150 8400 0    50   ~ 0
+For power wire\nstrain relief
+$Comp
+L SparkFun-Hardware:STAND-OFF H5
+U 1 1 629FCF1E
+P 2150 8500
+F 0 "H5" H 2150 8600 45  0001 C CNN
+F 1 "STAND-OFF" H 2150 8400 45  0001 C CNN
+F 2 "Hardware:STAND-OFF" H 2150 8650 20  0001 C CNN
+F 3 "" H 2150 8500 50  0001 C CNN
+F 4 "XXX-00000" H 2228 8500 60  0000 L CNN "Field4"
+	1    2150 8500
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:VCC #PWR0108
-U 1 1 6295F6ED
+L power:+12VA #PWR06
+U 1 1 62BAF73A
 P 5000 850
-F 0 "#PWR0108" H 5000 700 50  0001 C CNN
-F 1 "VCC" H 5015 1023 50  0000 C CNN
+F 0 "#PWR06" H 5000 700 50  0001 C CNN
+F 1 "+12VA" H 5015 1023 50  0000 C CNN
 F 2 "" H 5000 850 50  0001 C CNN
 F 3 "" H 5000 850 50  0001 C CNN
 	1    5000 850 
 	1    0    0    -1  
 $EndComp
+Text Notes 4700 2000 0    50   ~ 0
+Only install one or the other\nFNR selector
+Wire Notes Line
+	4800 1050 4800 1800
+Wire Notes Line
+	4850 2100 4850 3150
+Connection ~ 3000 850 
+Wire Wire Line
+	2100 1550 2100 1650
+Wire Wire Line
+	3000 1350 3000 3500
 $Comp
-L power:VCC #PWR?
-U 1 1 62FB5F5E
-P 5400 1350
-F 0 "#PWR?" H 5400 1200 50  0001 C CNN
-F 1 "VCC" H 5415 1523 50  0000 C CNN
-F 2 "" H 5400 1350 50  0001 C CNN
-F 3 "" H 5400 1350 50  0001 C CNN
-	1    5400 1350
+L Device:R R1
+U 1 1 62D11D73
+P 2500 2600
+F 0 "R1" V 2707 2600 50  0000 C CNN
+F 1 "1k" V 2616 2600 50  0000 C CNN
+F 2 "myfootprints:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal_wide_pads" V 2430 2600 50  0001 C CNN
+F 3 "~" H 2500 2600 50  0001 C CNN
+	1    2500 2600
+	0    -1   -1   0   
+$EndComp
+Connection ~ 3350 2000
+Wire Wire Line
+	3350 2000 3350 2600
+$Comp
+L my_devices:+12VB #PWR01
+U 1 1 62DB9890
+P 900 2500
+F 0 "#PWR01" H 900 2350 50  0001 C CNN
+F 1 "+12VB" H 915 2673 50  0000 C CNN
+F 2 "" H 900 2500 50  0001 C CNN
+F 3 "" H 900 2500 50  0001 C CNN
+	1    900  2500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  2500 900  2600
+Wire Wire Line
+	900  2600 1350 2600
+Wire Wire Line
+	3350 2600 3350 3600
+Wire Wire Line
+	1950 5100 2050 5100
+Wire Wire Line
+	1950 4900 2150 4900
+$Comp
+L power:+12VA #PWR04
+U 1 1 62E41D43
+P 2550 3650
+F 0 "#PWR04" H 2550 3500 50  0001 C CNN
+F 1 "+12VA" H 2565 3823 50  0000 C CNN
+F 2 "" H 2550 3650 50  0001 C CNN
+F 3 "" H 2550 3650 50  0001 C CNN
+	1    2550 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 3650 2550 3800
+Wire Wire Line
+	2050 5100 2050 5250
+Connection ~ 2550 4350
+Wire Wire Line
+	2550 4350 2550 4900
+NoConn ~ 1300 6350
+NoConn ~ 1300 6150
+$Comp
+L power:GNDA #PWR011
+U 1 1 62FBBE10
+P 4450 3900
+F 0 "#PWR011" H 4450 3650 50  0001 C CNN
+F 1 "GNDA" H 4455 3727 50  0000 C CNN
+F 2 "" H 4450 3900 50  0001 C CNN
+F 3 "" H 4450 3900 50  0001 C CNN
+	1    4450 3900
 	1    0    0    -1  
 $EndComp
 $Comp
-L Jumper:Jumper_3_Bridged12 JP?
-U 1 1 62FCA7F2
-P 5400 1550
-F 0 "JP?" H 5400 1661 50  0000 C CNN
-F 1 "pwr_jumper" H 5400 1752 50  0000 C CNN
-F 2 "" H 5400 1550 50  0001 C CNN
-F 3 "~" H 5400 1550 50  0001 C CNN
-	1    5400 1550
-	-1   0    0    1   
+L power:GNDA #PWR09
+U 1 1 62FBED02
+P 2550 5950
+F 0 "#PWR09" H 2550 5700 50  0001 C CNN
+F 1 "GNDA" H 2555 5777 50  0000 C CNN
+F 2 "" H 2550 5950 50  0001 C CNN
+F 3 "" H 2550 5950 50  0001 C CNN
+	1    2550 5950
+	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	5400 1350 5400 1400
+NoConn ~ 1900 6350
+NoConn ~ 1900 6150
 $Comp
-L SparkFun-PowerSymbols:5V #SUPPLY?
-U 1 1 630111E6
-P 5000 1350
-F 0 "#SUPPLY?" H 5050 1350 45  0001 L BNN
-F 1 "5V" H 5000 1520 45  0000 C CNN
-F 2 "XXX-00000" H 5000 1531 60  0001 C CNN
-F 3 "" H 5000 1350 60  0001 C CNN
-	1    5000 1350
+L Isolator:LTV-247 U1
+U 4 1 6280B2E4
+P 1600 6250
+F 0 "U1" H 1600 6575 50  0000 C CNN
+F 1 "LTV-247" H 1600 6484 50  0000 C CNN
+F 2 "Package_DIP:DIP-16_W7.62mm_LongPads" H 1400 6050 50  0001 L CIN
+F 3 "http://optoelectronics.liteon.com/upload/download/DS70-2009-0014/LTV-2X7%20sereis%20Mar17.PDF" H 1600 6250 50  0001 L CNN
+	4    1600 6250
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	5750 1350 5750 1550
-Wire Wire Line
-	5750 1550 5650 1550
 $Comp
-L power:+5VA #PWR?
-U 1 1 63021DD0
-P 5750 1350
-F 0 "#PWR?" H 5750 1200 50  0001 C CNN
-F 1 "+5VA" H 5765 1523 50  0000 C CNN
-F 2 "" H 5750 1350 50  0001 C CNN
-F 3 "" H 5750 1350 50  0001 C CNN
-	1    5750 1350
+L power:GNDA #PWR07
+U 1 1 62FE02EA
+P 2050 5250
+F 0 "#PWR07" H 2050 5000 50  0001 C CNN
+F 1 "GNDA" H 2055 5077 50  0000 C CNN
+F 2 "" H 2050 5250 50  0001 C CNN
+F 3 "" H 2050 5250 50  0001 C CNN
+	1    2050 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR03
+U 1 1 62FE2C49
+P 2050 2900
+F 0 "#PWR03" H 2050 2650 50  0001 C CNN
+F 1 "GNDA" H 2055 2727 50  0000 C CNN
+F 2 "" H 2050 2900 50  0001 C CNN
+F 3 "" H 2050 2900 50  0001 C CNN
+	1    2050 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR08
+U 1 1 62FE556E
+P 2100 1650
+F 0 "#PWR08" H 2100 1400 50  0001 C CNN
+F 1 "GNDA" H 2105 1477 50  0000 C CNN
+F 2 "" H 2100 1650 50  0001 C CNN
+F 3 "" H 2100 1650 50  0001 C CNN
+	1    2100 1650
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR010
+U 1 1 62FEA51B
+P 4000 2600
+F 0 "#PWR010" H 4000 2350 50  0001 C CNN
+F 1 "GNDA" H 4005 2427 50  0000 C CNN
+F 2 "" H 4000 2600 50  0001 C CNN
+F 3 "" H 4000 2600 50  0001 C CNN
+	1    4000 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Jumper:Jumper_2_Open JP1
+U 1 1 62FF5D4F
+P 9950 3950
+F 0 "JP1" H 9950 4185 50  0000 C CNN
+F 1 "Jumper_2_Open" H 9950 4094 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 9950 3950 50  0001 C CNN
+F 3 "~" H 9950 3950 50  0001 C CNN
+	1    9950 3950
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GNDA #PWR012
+U 1 1 62FF73AA
+P 9600 4200
+F 0 "#PWR012" H 9600 3950 50  0001 C CNN
+F 1 "GNDA" H 9605 4027 50  0000 C CNN
+F 2 "" H 9600 4200 50  0001 C CNN
+F 3 "" H 9600 4200 50  0001 C CNN
+	1    9600 4200
+	1    0    0    -1  
+$EndComp
+$Comp
+L my_devices:GNDB #PWR014
+U 1 1 62FFB267
+P 10300 4200
+F 0 "#PWR014" H 10300 3950 50  0001 C CNN
+F 1 "GNDB" H 10305 4027 50  0000 C CNN
+F 2 "" H 10300 4200 50  0001 C CNN
+F 3 "" H 10300 4200 50  0001 C CNN
+	1    10300 4200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5000 1350 5000 1550
+	9750 3950 9600 3950
 Wire Wire Line
-	5000 1550 5150 1550
-Text Notes 4900 1950 0    50   ~ 0
-Try powering off 5VA first
+	9600 3950 9600 4200
+Wire Wire Line
+	10150 3950 10300 3950
+Wire Wire Line
+	10300 3950 10300 4200
 $EndSCHEMATC
